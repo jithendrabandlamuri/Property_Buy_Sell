@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 
-const Home = () => {
+const Main = () => {
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
   const handleLogout = async () => {
@@ -29,4 +29,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Main;
