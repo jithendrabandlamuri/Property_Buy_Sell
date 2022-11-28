@@ -2,7 +2,7 @@ import React from "react";
 
 import { Row, Col, Container, Card, Button, Form } from "react-bootstrap";
 
-function Mainpage() {
+function M2() {
   const cardInfo = [
     {
       image:
@@ -31,12 +31,12 @@ function Mainpage() {
       title: "Vaishnavi Serene",
       subtitle: "Vaishnavi Group Yelahanka",
       text: "INR 94.7 Lacs",
-    }
+    },
   ];
-  const renderCard = (card, index)=>{
+  const renderCard = (card, index) => {
     return (
       <div>
-        <Col xs={3} className="col-lg-3 d-flex align-items-stretch mt-5">
+        
           <Card style={{ width: "18rem" }} className="shadow-lg" key={index}>
             <Card.Img
               style={{ height: "300px" }}
@@ -57,7 +57,7 @@ function Mainpage() {
               </Card.Text>
             </Card.Body>
           </Card>
-        </Col>
+        
       </div>
     );
   };
@@ -65,10 +65,14 @@ function Mainpage() {
   return (
     <div>
       <Container>
-        <Row>{cardInfo.map(renderCard)}</Row>
+        <Row className="justify-content-between">
+        <Col className="col-lg-4 d-flex justify-content-between align-items-stretch m-5 ">
+          {cardInfo.map(renderCard)}
+          </Col>
+        </Row>
       </Container>
     </div>
   );
 }
 
-export default Mainpage;
+export default M2;
