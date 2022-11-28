@@ -11,7 +11,7 @@ const NavbarComponent = () => {
     const location = [
         "Andhra Pradesh",
         "Arunachal Pradesh",
-        "  Assam",
+        "Assam",
         "Bihar",
         "Chhattisgarh",
         "Goa",
