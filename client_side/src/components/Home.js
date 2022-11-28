@@ -4,8 +4,8 @@ import SearchBar from './SearchBar'
 import M2 from './M2'
 function Home() {
   return (
-    <div>Home
-      <div><SellProperty></SellProperty>
+    <div>
+      <div>
       <SearchBar/>
       <M2 /></div>
     </div>

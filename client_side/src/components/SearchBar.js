@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function SearchBar() {
   return (
     <div>
+      <br />
       <div
         style={{ width: "60rem", border: "0.5px solid gray" }}
         className="container rounded border-left-50"
