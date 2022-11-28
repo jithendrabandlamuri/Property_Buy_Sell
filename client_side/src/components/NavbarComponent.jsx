@@ -18,7 +18,7 @@ const NavbarComponent = () => {
             
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               {location.map(value=>(
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item href={value}>
                   {value}
                 </NavDropdown.Item>
               ))}
