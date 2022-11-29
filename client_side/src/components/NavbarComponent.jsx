@@ -36,15 +36,11 @@ const NavbarComponent = () => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className="nav-link" to="/about">
-              About
-            </Link>
-
             <Form.Select>
               <option>Location</option>
               {
@@ -55,8 +51,8 @@ const NavbarComponent = () => {
             </Form.Select>
             <Link className='nav-link' to="/login">Login</Link>
             <Link className='nav-link' to="/subscription">Subscription</Link>
-            <Link className='nav-link' to="/home">Home</Link>
             <Link className='nav-link' to="/rent">Rent</Link>
+            <Link className='nav-link' to="/Addproperty">AddProperty</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
