@@ -1,8 +1,32 @@
 import React from "react";
 
 import { Row, Col, Container, Card, Button, Form } from "react-bootstrap";
+import {db} from '../firebase';
+import { collection, doc, query, where } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { getDocs } from "firebase/firestore";
+import {useLocation} from "react-router-dom";
 
 function M2() {
+  const [users,setUsers] = useState([]);
+  const userCollectionRef = collection(db,"properties");
+  const search = useLocation().search;
+  const name = new URLSearchParams(search).get('propertyType');
+  console.log(name)
+
+  useEffect(()=>{
+       const q=query(userCollectionRef, where("propertyType","==","Rent"));
+    const getUsers = async()=>{
+      const data = await getDocs(q);
+      setUsers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+      console.log("city",users);
+    };
+    getUsers();
+  },[]);
+
+
+  
+
   const cardInfo = [
     {
       image:
@@ -41,16 +65,13 @@ function M2() {
             <Card.Img
               style={{ height: "300px" }}
               variant="top"
-              src={card.image}
+              src={card.files}
             />
             <Card.Body>
-              <Card.Title> {card.title}</Card.Title>
-              <p>
+              <Card.Title> {card.city}</Card.Title>
                 <Card.Subtitle>{card.subtitle}</Card.Subtitle>
-              </p>
               <Card.Text>
                 <b> {card.text}</b> <br />
-                <i> onwards </i>
                 <Button className="float-end" variant="primary">
                   View Details
                 </Button>
@@ -63,11 +84,12 @@ function M2() {
   };
 
   return (
+
     <div>
       <Container>
         <Row className="justify-content-between">
         <Col className="col-lg-4 d-flex justify-content-between align-items-stretch m-5 ">
-          {cardInfo.map(renderCard)}
+          {users.map(renderCard)}
           </Col>
         </Row>
       </Container>

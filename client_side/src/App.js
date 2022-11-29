@@ -2,6 +2,8 @@ import "./App.css";
 import Main from "./components/Main";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import {db} from './firebase';
+import { collection, doc } from "firebase/firestore";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProductRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
@@ -11,7 +13,21 @@ import About from "./components/About";
 import NavbarComponent from "./components/NavbarComponent";
 
 import Subscription from "./components/subscription"
+import { useEffect, useState } from "react";
+import { getDocs } from "firebase/firestore";
 function App() {
+  // const [users,setUsers] = useState([]);
+  // const userCollectionRef = collection(db,"properties");
+
+  // useEffect(()=>{
+  //   const getUsers = async()=>{
+  //     const data = await getDocs(userCollectionRef);
+  //     setUsers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+  //     console.log(users);
+  //   };
+  //   getUsers();
+  // },[]);
+  
   return (
     <Router>
       <NavbarComponent />

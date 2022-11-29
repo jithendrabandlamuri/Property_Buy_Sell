@@ -54,7 +54,9 @@ const NavbarComponent = () => {
               }
             </Form.Select>
             <Link className='nav-link' to="/login">Login</Link>
-            <Link className='nav-link' to="/subscription">subscription</Link>
+            <Link className='nav-link' to="/subscription">Subscription</Link>
+            <Link className='nav-link' to="/home">Home</Link>
+            <Link className='nav-link' to="/rent">Rent</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
