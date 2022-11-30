@@ -11,6 +11,7 @@ import Subscription from "./components/subscription"
 import SellProperty from "./components/SellProperty";
 import UserProperties from "./components/UserProperties";
 import React,{useState} from 'react'
+import PhoneSignUp from "./components/PhoneSignUp";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -43,6 +44,7 @@ function App() {
           <Route path="/subscription" element={<Subscription setNavLocation={setNavLocation}/>} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
           <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
         </Routes>
