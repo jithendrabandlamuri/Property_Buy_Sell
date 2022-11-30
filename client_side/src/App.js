@@ -7,10 +7,11 @@ import ProtectedRoute from "./components/ProductRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./components/About";
 import NavbarComponent from "./components/NavbarComponent";
 import ForgottenPassword from "./components/ForgottenPassword";
 import Subscription from "./components/subscription"
+import SellProperty from "./components/SellProperty";
+
 function App() {
   
   return (
@@ -27,16 +28,14 @@ function App() {
             }
           />
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/subscription" element={<Subscription />} />
-          <Route exact path='/about' element={< About />}></Route>
-          <Route path="/login" element={<Login />}/>
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Addproperty" element={<SellProperty/>} />
           <Route path="/forgottenPassword" element={<ForgottenPassword/>} />
         </Routes>
       </UserAuthContextProvider>
     </Router>
   );
 }
-
 export default App;
