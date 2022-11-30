@@ -40,8 +40,8 @@ function App() {
           navLocation={navLocation} setNavLocation={setNavLocation}
           propertyV={propertyV} setPropertyV={setPropertyV}
           />} />
-          <Route path="/subscription" element={<Subscription />} />
-          <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+          <Route path="/subscription" element={<Subscription setNavLocation={setNavLocation}/>} />
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />

@@ -6,8 +6,9 @@ import GoogleButton from "react-google-button";
 import { useUserAuth } from "../context/UserAuthContext";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import NavbarComponent from "./NavbarComponent";
 
-const Login = ({ setIsAuth }) => {
+const Login = ({ setIsAuth,setNavLocation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -48,6 +49,7 @@ const Login = ({ setIsAuth }) => {
 
   return (
     <>
+      <NavbarComponent setNavLocation={setNavLocation} />
       <div class="container-fluid d-flex justify-content-center">
         <div class="row ">
           <div class=" intro-section">
@@ -61,7 +63,7 @@ const Login = ({ setIsAuth }) => {
             </div>
           </div>
         </div>
-       
+
         <div className="p-4 SLbox">
           <h2 className="mb-3">Login</h2>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -101,9 +103,9 @@ const Login = ({ setIsAuth }) => {
             Don't have an account? <Link to="/signup">Sign up</Link>
           </div>
         </div>
-        </div>
-      </>
-      );
+      </div>
+    </>
+  );
 };
 
-      export default Login;
+export default Login;
