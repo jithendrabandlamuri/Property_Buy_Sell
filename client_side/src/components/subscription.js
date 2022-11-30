@@ -4,7 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 
 function subscription() {
     return (
-        <div>
+        <div className='back_image'>
             <div class="container">
                 <br /><br />
                 <div >Title</div><br />
@@ -36,7 +36,7 @@ function subscription() {
                 <br /><br />
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="card mb-4 box-shadow">
+                        <div class="card text-white bg-secondary mb-3">
                             <div class="card-header">
                                 <h4 class="my-0 font-weight-normal">BASIC</h4>
                             </div>
@@ -53,7 +53,7 @@ function subscription() {
                         </div>
                     </div>
                     <div class="col-sm-6 ">
-                        <div class="card mb-4 box-shadow">
+                        <div class="card text-white bg-success mb-3">
                             <div class="card-header">
                                 <h4 class="my-0 font-weight-normal">PRO</h4>
                             </div>

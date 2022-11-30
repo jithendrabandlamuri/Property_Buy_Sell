@@ -27,6 +27,19 @@ const Signup = () => {
 
   return (
     <>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="row ">
+          <div class=" intro-section">
+            <div class="brand-wrapper">
+              <h1>RentLo</h1>
+            </div>
+            <div class="intro-content-wrapper">
+              <h1 class="intro-title">Welcome to website !</h1>
+              <p class="intro-text">Choose your future Home here...!</p>
+              <a href="#!" class="btn btn-read-more">Read more</a>
+            </div>
+          </div>
+        </div>
       <div className="p-4 SLbox">
         <h2 className="mb-3">Signup</h2>
         {error && <Alert variant="danger">{error}</Alert>}
@@ -60,9 +73,11 @@ const Signup = () => {
             </Button>
           </div>
         </Form>
-      </div>
-      <div className="p-4 box mt-3 text-center">
+        <div className="p-4 box mt-3 text-center">
         Already have an account? <Link to="/">Log In</Link>
+      </div>
+      </div>
+     
       </div>
     </>
   );
