@@ -5,11 +5,12 @@ import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../context/UserAuthContext";
 
-const Login = () => {
+const Login = ({ setIsAuth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { logIn, googleSignIn } = useUserAuth();
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,7 +18,9 @@ const Login = () => {
     setError("");
     try {
       await logIn(email, password);
-      navigate("/home");
+      localStorage.setItem("isAuth", true)
+      setIsAuth(true)
+      navigate("/userMain");
     } catch (err) {
       setError(err.message);
     }
@@ -27,7 +30,9 @@ const Login = () => {
     e.preventDefault();
     try {
       await googleSignIn();
-      navigate("/home");
+      localStorage.setItem("isAuth", true)
+      setIsAuth(true)
+      navigate("/userMain");
     } catch (error) {
       console.log(error.message);
     }

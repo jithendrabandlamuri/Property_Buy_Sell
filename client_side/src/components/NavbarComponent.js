@@ -1,37 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
-const NavbarComponent = () => {
-
+const NavbarComponent = ({setNavLocation}) => {
+  const [navLocation1, setNavLocation1] = useState("");
+  setNavLocation(navLocation1)
   const location = [
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jammu and Kashmir",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha (Orissa)",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
+    "a",
+    "b"
   ];
   return (
     <Navbar bg="dark" variant="dark">
@@ -41,8 +20,8 @@ const NavbarComponent = () => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Form.Select>
-              <option>Location</option>
+            <Form.Select onChange={(e) => setNavLocation1(e.target.value)}>
+              <option disabled selected>Location</option>
               {
                 location.map(data => (
                   <option value={data}>{data}</option>

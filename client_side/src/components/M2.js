@@ -1,63 +1,43 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore'
+import { auth, db } from '../firebase'
 import { Row, Col, Container, Card, Button, Form } from "react-bootstrap";
 
-function M2() {
-  const cardInfo = [
-    {
-      image:
-        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "DS Max Synergy",
-      subtitle: "by DS Max Properties Pvt Ltd. Agrahara, Bangalore",
-      text: "INR 32 Lacs",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "Navami Landmarks",
-      subtitle: "Navami Builders and Developers Mysore Road, Bangalore",
-      text: "INR 26.2 Lacs",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "RRL Nature Wood",
-      subtitle: "RRL Builders and Developers Sarjapur, Bangalore",
-      text: "INR 45.6 Lacs",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "Vaishnavi Serene",
-      subtitle: "Vaishnavi Group Yelahanka",
-      text: "INR 94.7 Lacs",
-    },
-  ];
-  const renderCard = (card, index) => {
+function M2({ location, budget, flatType, navLocation,propertyV }) {
+  const [userProperties, setUserProperties] = useState([])
+  const postCollectionRef = collection(db, "properties")
+
+  useEffect(() => {
+    const getProperties = async () => {
+      const data = await getDocs(postCollectionRef)
+      setUserProperties(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    }
+    getProperties()
+  })
+
+  const renderCard = (card, id) => {
     return (
       <div>
-        
-          <Card style={{ width: "18rem" }} className="shadow-lg" key={index}>
-            <Card.Img
-              style={{ height: "300px" }}
-              variant="top"
-              src={card.image}
-            />
-            <Card.Body>
-              <Card.Title> {card.title}</Card.Title>
-              <p>
-                <Card.Subtitle>{card.subtitle}</Card.Subtitle>
-              </p>
-              <Card.Text>
-                <b> {card.text}</b> <br />
-                <i> onwards </i>
-                <Button className="float-end" variant="primary">
-                  View Details
-                </Button>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        
+        <Card style={{ width: "18rem" }} className="shadow-lg" key={id}>
+          <Card.Img
+            style={{ height: "300px" }}
+            variant="top"
+            src={card.image}
+          />
+          <Card.Body>
+            <Card.Title> {card.title}</Card.Title>
+            <p>
+              <Card.Subtitle>{card.subtitle}</Card.Subtitle>
+            </p>
+            <Card.Text>
+              <b> {card.text}</b> <br />
+              <i> onwards </i>
+              <Button className="float-end" variant="primary">
+                View Details
+              </Button>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     );
   };
@@ -66,8 +46,27 @@ function M2() {
     <div>
       <Container>
         <Row className="justify-content-between">
-        <Col className="col-lg-4 d-flex justify-content-between align-items-stretch m-5 ">
-          {cardInfo.map(renderCard)}
+          <Col className="col-lg-4 d-flex justify-content-between align-items-stretch m-5 ">
+            {
+              userProperties.map((post) => {
+                if (post.propertyType === propertyV) {
+                  return (
+                    renderCard(post, post.id)
+                  )
+                }
+                else if (post.city === location && post.flatType === flatType && post.price === budget) {
+                  return (
+                    renderCard(post, post.id)
+                  )
+                }
+                else if (post.city === navLocation) {
+                  return (
+                    renderCard(post, post.id)
+                  )
+                }
+              })
+              // {setPropertyT("h")}
+            }
           </Col>
         </Row>
       </Container>

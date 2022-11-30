@@ -7,29 +7,44 @@ import ProtectedRoute from "./components/ProductRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavbarComponent from "./components/NavbarComponent";
 import Subscription from "./components/subscription"
 import SellProperty from "./components/SellProperty";
+import UserProperties from "./components/UserProperties";
+import React,{useState} from 'react'
 
 function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+  const [location, setLocation] = useState("");
+  const [flatType, setFlatType] = useState("");
+  const [budget, setBudget] = useState("");
+  const [navLocation, setNavLocation] = useState("");
+  const [propertyV, setPropertyV] = useState('Sell');
+  console.log(propertyV);
+
   return (
     <Router>
-      <NavbarComponent />
       <UserAuthContextProvider>
         <Routes>
           <Route
-            path="/home"
+            path="/userMain"
             element={
               <ProtectedRoute>
-                <Main />
+                <Main setIsAuth={setIsAuth} isAuth={isAuth}/>
               </ProtectedRoute>
             }
           />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home 
+          location={location} setlocation={setLocation}
+          flatType={flatType} setFlatType={setFlatType}
+          budget={budget} setBudget={setBudget}
+          navLocation={navLocation} setNavLocation={setNavLocation}
+          propertyV={propertyV} setPropertyV={setPropertyV}
+          />} />
           <Route path="/subscription" element={<Subscription />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/Addproperty" element={<SellProperty/>} />
+          <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
         </Routes>
       </UserAuthContextProvider>
     </Router>
