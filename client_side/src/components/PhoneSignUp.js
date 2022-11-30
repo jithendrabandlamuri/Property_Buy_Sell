@@ -14,7 +14,7 @@ const PhoneSignUp = () => {
   const { setUpRecaptha } = useUserAuth();
   const navigate = useNavigate();
 
-  const getOtp = async (e) => {
+  const getOtp = async (e) =>{
     e.preventDefault();
     console.log(number);
     setError("");
