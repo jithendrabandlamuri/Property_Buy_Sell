@@ -37,6 +37,7 @@ function SellerView({ setIsAuth, isAuth }) {
                                             <div className="title">
                                                 <h1>{post1.name}</h1>
                                                 <h1>{post1.email}</h1>
+                                                <h1>{post1.phno}</h1>
                                             </div>
                                         </div>
                                     </div>
