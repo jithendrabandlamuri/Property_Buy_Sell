@@ -22,7 +22,6 @@ function App() {
   const [budget, setBudget] = useState("");
   const [navLocation, setNavLocation] = useState("");
   const [userid, setuserid] = useState("");
-  const [subAmount, setSubAmount] = useState("");
   const [propertyV, setPropertyV] = useState('Sell');
   console.log(propertyV);
 
@@ -46,7 +45,7 @@ function App() {
           propertyV={propertyV} setPropertyV={setPropertyV}
           userid={userid} setuserid={setuserid}
           />} />
-          <Route path="/subscription" element={<Subscription setNavLocation={setNavLocation} setSubAmount={setSubAmount}/>} />
+          <Route path="/subscription" element={<Subscription setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
