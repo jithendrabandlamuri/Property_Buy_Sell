@@ -9,9 +9,13 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SellProperty from "./components/SellProperty";
 import UserProperties from "./components/UserProperties";
-import Subscription from "./components/Subscription"
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import PhoneSignUp from "./components/PhoneSignUp";
+import Sidebar from './AdminComponent/Sidebar.js';
+import Dashboard from './AdminComponent/Dashboard.js';
+import About from './AdminComponent/About.js';
+import Analytics from './AdminComponent/Analytics.js';
+import Subscription from "./components/Subscription"
 import PropertyDetails from "./components/PropertyDetails"
 import SellerView from "./components/SellerView";
 
@@ -33,7 +37,7 @@ function App() {
             path="/userMain"
             element={
               <ProtectedRoute>
-                <Main setIsAuth={setIsAuth} isAuth={isAuth}/>
+                <Main setIsAuth={setIsAuth} isAuth={isAuth} />
               </ProtectedRoute>
             }
           />
@@ -47,15 +51,20 @@ function App() {
           />} />
           <Route path="/subscription" element={<Subscription setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup setNavLocation={setNavLocation}/>} />
           <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
           <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}/>} />
           <Route path="/sellerview" element={<SellerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/sidebar" element={<Sidebar />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/analytics" element={<Analytics />} />
         </Routes>
       </UserAuthContextProvider>
     </Router>
+
   );
 }
 export default App;

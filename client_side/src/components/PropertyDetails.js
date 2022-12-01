@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection, addDoc } from 'firebase/firestore'
-import { db } from '../firebase'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { getDocs, collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import NavbarComponent from "./NavbarComponent";
+import { Row, Col, Container, Card, Form } from "react-bootstrap";
 
 function PropertyDetails({ userid, setNavLocation }) {
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const navigate = useNavigate();
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const navigate = useNavigate();
 
-    const [userProperties, setUserProperties] = useState([])
-    const postCollectionRef = collection(db, "properties")
+  const [userProperties, setUserProperties] = useState([]);
+  const postCollectionRef = collection(db, "properties");
 
     useEffect(() => {
         const getProperties = async () => {
@@ -43,6 +44,7 @@ function PropertyDetails({ userid, setNavLocation }) {
             console.log(err.message);
         }
     };
+
 
     return (
         <>
@@ -96,4 +98,4 @@ function PropertyDetails({ userid, setNavLocation }) {
     )
 }
 
-export default PropertyDetails
+export default PropertyDetails;

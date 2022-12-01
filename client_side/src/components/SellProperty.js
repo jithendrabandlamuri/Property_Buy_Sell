@@ -25,6 +25,7 @@ function SellProperty({ setIsAuth, isAuth }) {
         if (!isAuth) {
             navigate('/login')
         }
+        console.log(auth.currentUser);
     }, [])
 
     const handleCoverImg = (e) => {

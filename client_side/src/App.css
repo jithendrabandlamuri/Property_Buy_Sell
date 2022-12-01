@@ -4,8 +4,8 @@ body {
 }
 
 .intro-section {
-  background-image: url(https://media.istockphoto.com/id/1211174464/photo/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-grass-and-blue-sky.jpg?s=612x612&w=0&k=20&c=h0XtWGD8asz_hfDVus7SWwOrtAFlZYfr7wdStKCQv14=);
-  background-size: 100%;
+  background-image: url("../src/Property.jpg");
+  background-size: 120%;
   background-repeat: no-repeat;
   background-position: center;
   padding: 80px 75px;
@@ -41,12 +41,11 @@ body {
 
 .intro-content-wrapper .intro-text {
   font-size: 19px;
-  line-height: 1.37;
 }
 
 .intro-content-wrapper .btn-read-more {
   background-color: #fff;
-  padding: 13px 30px;
+  /* padding: 13px 30px; */
   border-radius: 0;
   font-size: 16px;
   font-weight: bold;
@@ -59,11 +58,15 @@ body {
   color: #fff;
 }
 
+.flex{
+  display: flex;
+  justify-content: space-around;
+}
 .SLbox {
   border: 1px solid gray;
-  background-color: #fff;
-  background-color: gainsboro;
-  
+  background-color: rgb(192, 127, 183);
+
+  float: right;
 }
 
 .g-btn {
@@ -119,4 +122,66 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 
+}
+
+.container-s{
+  margin:0px;
+  padding:0;
+  text-decoration: none;
+}
+main{
+  width: 100%;
+  padding: 20px;
+}
+.sidebar{
+  background:gray;
+  color: #fff;
+  height: 100vh;
+  width: 20px;
+  transition: all 0.5s;
+}
+.top_section{
+  display: flex;
+  align-items:center;
+  padding:20px 15px;
+}
+.logo{
+  font-size: 30px;
+}
+.bars{
+  display: flex;
+  font-size: 25px;
+  margin-left: 50px;
+}
+.link{
+  display: flex;
+  color: #fff;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+.link:hover{
+  background:lightskyblue;
+  color: #000;
+  transition: all 0.5s;
+}
+.active{
+  background: lightskyblue;
+  color: #000;
+}
+.icon, .link_text{
+  font-size: 20px;
+}
+
+
+.accordion-button {
+  background-color: antiquewhite !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #212529;
 }
