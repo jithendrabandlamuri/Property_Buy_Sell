@@ -14,7 +14,6 @@ import React,{useState} from 'react'
 import PhoneSignUp from "./components/PhoneSignUp";
 import PropertyDetails from "./components/PropertyDetails"
 import SellerView from "./components/SellerView";
-import Paymentgateway from "./components/Paymentgateway";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -23,7 +22,6 @@ function App() {
   const [budget, setBudget] = useState("");
   const [navLocation, setNavLocation] = useState("");
   const [userid, setuserid] = useState("");
-  const [subAmount, setSubAmount] = useState("");
   const [propertyV, setPropertyV] = useState('Sell');
   console.log(propertyV);
 
@@ -47,7 +45,7 @@ function App() {
           propertyV={propertyV} setPropertyV={setPropertyV}
           userid={userid} setuserid={setuserid}
           />} />
-          <Route path="/subscription" element={<Subscription setIsAuth={setIsAuth} isAuth={isAuth} setSubAmount={setSubAmount}/>} />
+          <Route path="/subscription" element={<Subscription setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
@@ -55,7 +53,6 @@ function App() {
           <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}/>} />
           <Route path="/sellerview" element={<SellerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
-          <Route path="/payment" element={<Paymentgateway  subAmount={subAmount} />} />
         </Routes>
       </UserAuthContextProvider>
     </Router>
