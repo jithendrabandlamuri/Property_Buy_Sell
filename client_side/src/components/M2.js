@@ -19,11 +19,14 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
     getProperties();
   });
 
-  const handleClick = (e) => {
-    setuserid("0THoxo8DcAfRkkxQB7AdcXQr9G43")
+  // const handleClick = (e) => {
+  //   setuserid("0THoxo8DcAfRkkxQB7AdcXQr9G43")
+  //   navigate("/propertydetails");
+  // }
+  function handleClick(id) {
+    setuserid(id)
     navigate("/propertydetails");
   }
-
 
   const renderCard = (card, id) => {
     return (
@@ -51,7 +54,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
                 style={{ height: "45px", borderRadius: "0.5" }}
                 className="float-end"
                 variant="primary"
-                onClick={handleClick}
+                onClick={() => { handleClick(id) }}
               >
                 View Details
               </Button>

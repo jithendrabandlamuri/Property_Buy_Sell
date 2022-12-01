@@ -13,7 +13,7 @@ function UserProperties({ setIsAuth, isAuth }) {
             setUserProperties(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
         getProperties()
-    })
+    },[])
 
     const deleteProperty = async (id) => {
         const postDoc = doc(db, "properties", id)

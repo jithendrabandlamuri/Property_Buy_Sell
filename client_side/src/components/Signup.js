@@ -4,9 +4,10 @@ import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
 import "react-phone-number-input/style.css";
+import NavbarComponent from "./NavbarComponent";
 
 
-const Signup = () => {
+const Signup = ({ setNavLocation }) => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +31,7 @@ const Signup = () => {
 
   return (
     <>
+    <NavbarComponent setNavLocation={setNavLocation} />
       <div class="container-fluid d-flex justify-content-center intro-section">
         <div class="row ">
           <div className="flex ">
