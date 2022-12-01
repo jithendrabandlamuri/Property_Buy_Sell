@@ -17,7 +17,6 @@ function Subscription({ setIsAuth, isAuth }) {
     }, [])
 
     function handleSubmit(price) {
-        console.log("basic price aja", price);
         if (price) {
             var options = {
                 key: "rzp_test_eMoNKm1nGhee9f",

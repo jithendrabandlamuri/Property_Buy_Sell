@@ -5,15 +5,22 @@ import Navbaruser from "./Narbaruser"
 
 function SellerView({ setIsAuth, isAuth }) {
     const [userProperties, setUserProperties] = useState([])
-    const postCollectionRef = collection(db, "buyers")
+    const [buyers, setBuyers] = useState([])
+    const postCollectionRefP = collection(db, "properties")
+    const postCollectionRefB = collection(db, "buyers")
 
     useEffect(() => {
         const getProperties = async () => {
-            const data = await getDocs(postCollectionRef)
+            const data = await getDocs(postCollectionRefP)
             setUserProperties(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
         }
+        const getBuyers = async () => {
+            const data = await getDocs(postCollectionRefB)
+            setBuyers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        }
         getProperties()
-    })
+        getBuyers()
+    },[])
 
     return (
         <>
@@ -21,18 +28,21 @@ function SellerView({ setIsAuth, isAuth }) {
             <div>
                 {
                     userProperties.map((post) => {
-                        if (post.sellerid === auth.currentUser.uid) {
-                            return (
-                                <div className="post" key={post.id}>
-                                    <div className="postHeader">
-                                        <div className="title">
-                                            <h1>{post.name}</h1>
-                                            <h1>{post.email}</h1>
+                        return (buyers.map((post1) => {
+                            if (post1.sellerid === post.id) {
+                                console.log(post1.name,post1.email);
+                                return (
+                                    <div className="post" key={post1.sellerid}>
+                                        <div className="postHeader">
+                                            <div className="title">
+                                                <h1>{post1.name}</h1>
+                                                <h1>{post1.email}</h1>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        }
+                                )
+                            }
+                        }))
                     })
                 }
             </div>

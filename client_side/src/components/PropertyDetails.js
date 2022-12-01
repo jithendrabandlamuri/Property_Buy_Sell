@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from "react-router-dom";
 import NavbarComponent from "./NavbarComponent";
 
-function PropertyDetails({ userid,setNavLocation }) {
+function PropertyDetails({ userid, setNavLocation }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -26,6 +26,7 @@ function PropertyDetails({ userid,setNavLocation }) {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [phno, setphno] = useState("");
     const userCollection = collection(db, "buyers");
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +34,8 @@ function PropertyDetails({ userid,setNavLocation }) {
             await addDoc(userCollection, {
                 sellerid: userid,
                 name,
-                email
+                email,
+                phno
             });
             navigate("/propertydetails")
             handleClose()
@@ -48,7 +50,7 @@ function PropertyDetails({ userid,setNavLocation }) {
             <div>
                 {
                     userProperties.map((post) => {
-                        if (post.author.id === userid) {
+                        if (post.id === userid) {
                             return (
                                 <div className="post" key={post.id}>
                                     <div className="postHeader">
@@ -75,6 +77,10 @@ function PropertyDetails({ userid,setNavLocation }) {
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" class="form-control" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)}></input>
+                            </div><br />
+                            <div class="form-group">
+                                <label >Phone Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Phone Number" onChange={(e) => setphno(e.target.value)}></input>
                             </div><br />
                             <button type="submit" class="btn btn-primary" onClick={handleSubmit}>Submit</button>
                         </form>
