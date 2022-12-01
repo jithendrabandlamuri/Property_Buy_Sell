@@ -1,14 +1,36 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { CheckSquareFill, Check2 } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
-import NavbarComponent from "./NavbarComponent";
+import Navbaruser from "./Narbaruser"
+import { useNavigate } from 'react-router-dom'
 
-function Subscription({setNavLocation,setSubAmount}) {
+function Subscription({setSubAmount,setIsAuth, isAuth}) {
     const [amount, setAmount] = useState("")
     setSubAmount(amount)
+    let navigate = useNavigate()
+
+    useEffect(() => {
+        if (!isAuth) {
+            navigate('/login')
+        }
+    }, [])
+
+    const handleSubmit = async (e) => {
+        setAmount(e.target.value)
+        console.log(amount);
+        try {
+            setSubAmount(amount)
+            console.log(amount);
+            navigate("/payment")
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+    
+
     return (
         <>
-            <NavbarComponent setNavLocation={setNavLocation} />
+            <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
             <div className='back_image'>
                 <div class="container">
                     <br /><br />
@@ -53,7 +75,7 @@ function Subscription({setNavLocation,setSubAmount}) {
                                         <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 100</b></span></li>
                                         <li style={{ marginLeft: "8%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                     </ul>
-                                    <button type="button" class="btn btn-lg btn-block btn-primary" value="1500" onClick={(e) => setAmount(e.target.value)}>Buy now</button>
+                                    <button type="button" class="btn btn-lg btn-block btn-primary" value="1500" onClick={handleSubmit}>Buy now</button>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +92,7 @@ function Subscription({setNavLocation,setSubAmount}) {
                                         <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 150</b></span></li>
                                         <li style={{ marginLeft: "9%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                     </ul>
-                                    <button type="button" class="btn btn-lg btn-block btn-primary" value="3000" onClick={(e) => setAmount(e.target.value)}>Buy now</button>
+                                    <button type="button" class="btn btn-lg btn-block btn-primary" value="3000" onClick={(e)=>setAmount(e.target.value)}>Buy now</button>
                                 </div>
                             </div>
                         </div>
