@@ -1,99 +1,92 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { auth, db } from "../firebase";
 import { Row, Col, Container, Card, Button, Form } from "react-bootstrap";
-import {db} from '../firebase';
-import { collection, doc, query, where } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { getDocs } from "firebase/firestore";
-import {useLocation} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function M2() {
-  const [users,setUsers] = useState([]);
-  const userCollectionRef = collection(db,"properties");
-  const search = useLocation().search;
-  const name = new URLSearchParams(search).get('propertyType');
-  console.log(name)
+function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
+  const [userProperties, setUserProperties] = useState([]);
+  const postCollectionRef = collection(db, "properties");
+  const navigate = useNavigate();
 
-  useEffect(()=>{
-       const q=query(userCollectionRef, where("propertyType","==","Rent"));
-    const getUsers = async()=>{
-      const data = await getDocs(q);
-      setUsers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
-      console.log("city",users);
+  useEffect(() => {
+    const getProperties = async () => {
+      const data = await getDocs(postCollectionRef);
+      setUserProperties(
+        data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
     };
-    getUsers();
-  },[]);
+    getProperties();
+  });
+
+  const handleClick = (e) => {
+    setuserid("0THoxo8DcAfRkkxQB7AdcXQr9G43")
+    navigate("/propertydetails");
+  }
 
 
-  
-
-  const cardInfo = [
-    {
-      image:
-        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "DS Max Synergy",
-      subtitle: "by DS Max Properties Pvt Ltd. Agrahara, Bangalore",
-      text: "INR 32 Lacs",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "Navami Landmarks",
-      subtitle: "Navami Builders and Developers Mysore Road, Bangalore",
-      text: "INR 26.2 Lacs",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "RRL Nature Wood",
-      subtitle: "RRL Builders and Developers Sarjapur, Bangalore",
-      text: "INR 45.6 Lacs",
-    },
-    {
-      image:
-        "https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=600",
-      title: "Vaishnavi Serene",
-      subtitle: "Vaishnavi Group Yelahanka",
-      text: "INR 94.7 Lacs",
-    },
-  ];
-  const renderCard = (card, index) => {
+  const renderCard = (card, id) => {
     return (
-      <div>
-        
-          <Card style={{ width: "18rem" }} className="shadow-lg" key={index}>
-            <Card.Img
-              style={{ height: "300px" }}
-              variant="top"
-              src={card.files}
-            />
-            <Card.Body>
-              <Card.Title> {card.city}</Card.Title>
-                <Card.Subtitle>{card.subtitle}</Card.Subtitle>
-              <Card.Text>
-                <b> {card.text}</b> <br />
-                <Button className="float-end" variant="primary">
-                  View Details
-                </Button>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        
-      </div>
+      <Col
+        className="d-flex"
+        style={{ marginTop: "10px", marginBottom: "10px" }}
+      >
+        <Card style={{ width: "18rem" }} className="shadow-lg" key={id}>
+          <Card.Img
+            style={{ height: "300px" }}
+            variant="top"
+            src={card.coverImg}
+          />
+          <Card.Body>
+            <Card.Title style={{ height: "35px", marginBottom: "0px" }}>
+              {card.title}
+            </Card.Title>
+            <p style={{ height: "30px" }}>
+              <Card.Subtitle>{card.subtitle}</Card.Subtitle>
+            </p>
+            <Card.Text>
+              <b style={{ height: "20px" }}> {card.text}</b> <br />
+              <i style={{ height: "10px" }}> onwards </i>
+              <Button
+                style={{ height: "45px", borderRadius: "0.5" }}
+                className="float-end"
+                variant="primary"
+                onClick={handleClick}
+              >
+                View Details
+              </Button>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
     );
   };
 
   return (
-
-    <div>
-      <Container>
+    <Container>
+      <div className="mt-5" style={{ marginRight: "30px", marginLeft: "50px" }}>
         <Row className="justify-content-between">
-        <Col className="col-lg-4 d-flex justify-content-between align-items-stretch m-5 ">
-          {users.map(renderCard)}
-          </Col>
+          {/* <Col className="col-lg-4 d-flex justify-content-between align-items-stretch m-5 "> */}
+          {
+            userProperties.map((post) => {
+              if (post.propertyType === propertyV) {
+                return renderCard(post, post.id);
+              } else if (
+                post.city === location &&
+                post.flatType === flatType &&
+                post.price === budget
+              ) {
+                return renderCard(post, post.id);
+              } else if (post.city === navLocation) {
+                return renderCard(post, post.id);
+              }
+            })
+            // {setPropertyT("h")}
+          }
+          {/* </Col> */}
         </Row>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }
 

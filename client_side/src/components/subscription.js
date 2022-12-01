@@ -1,8 +1,45 @@
 import React from 'react'
 import { CheckSquareFill, Check2 } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-function subscription() {
+const proPrice=3000;
+const basicPrice=1500;
+
+function Subscription() {
+
+function handleSubmit(price){
+    console.log("basic price aja",price);
+    if(price){
+        var options = {
+            key: "rzp_test_eMoNKm1nGhee9f",
+            key_secret:"7CcklJBXFXeib85KnDzcVffL",
+              amount: price *100,
+              currency:"INR",
+              name:"STARTUP_PROJECTS",
+              description:"for testing purpose",
+              handler: function(response){
+                alert(response.razorpay_payment_id);
+              },
+              prefill: {
+                name:"Velmurugan",
+                email:"mvel1620r@gmail.com",
+                contact:"7904425033"
+              },
+              notes:{
+                address:"Razorpay Corporate office"
+              },
+              theme: {
+                color:"#3399cc"
+              }
+            };
+            var pay = new window.Razorpay(options);
+            pay.open();
+    }
+    }
+
+    const navigate = useNavigate();
     return (
         <div>
             <div class="container">
@@ -41,14 +78,14 @@ function subscription() {
                                 <h4 class="my-0 font-weight-normal">BASIC</h4>
                             </div>
                             <div class="card-body">
-                                <h1 class="card-title pricing-card-title">₹1500 </h1>
+                                <h1 class="card-title pricing-card-title">₹{basicPrice} </h1>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li style={{ marginLeft: "7%" }}>No. of Owners you can contact<span style={{ marginLeft: "10%" }}>: <b> 20</b></span></li>
                                     <li style={{ marginLeft: "11%" }}>LIVE Video Tour<span style={{ marginLeft: "31%" }}>: <b> Max 3</b></span></li>
                                     <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 100</b></span></li>
                                     <li style={{ marginLeft: "8%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                 </ul>
-                                <button type="button" class="btn btn-lg btn-block btn-primary">Buy now</button>
+                                <button type="button" class="btn btn-lg btn-block btn-primary" onClick={()=>{handleSubmit(basicPrice)}}>Buy Now</button>
                             </div>
                         </div>
                     </div>
@@ -65,7 +102,7 @@ function subscription() {
                                     <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 150</b></span></li>
                                     <li style={{ marginLeft: "9%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                 </ul>
-                                <button type="button" class="btn btn-lg btn-block btn-primary">Buy now</button>
+                                <button type="button" class="btn btn-lg btn-block btn-primary" onClick={()=>{handleSubmit(proPrice)}}>Buy now</button>
                             </div>
                         </div>
                     </div>
@@ -131,4 +168,4 @@ function subscription() {
     )
 }
 
-export default subscription
+export default Subscription
