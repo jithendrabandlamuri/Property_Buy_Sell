@@ -10,8 +10,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Subscription from "./components/subscription"
 import SellProperty from "./components/SellProperty";
 import UserProperties from "./components/UserProperties";
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import PhoneSignUp from "./components/PhoneSignUp";
+import Sidebar from './AdminComponent/Sidebar.js';
+import Dashboard from './AdminComponent/Dashboard.js';
+import About from './AdminComponent/About.js';
+import Analytics from './AdminComponent/Analytics.js';
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -30,26 +34,32 @@ function App() {
             path="/userMain"
             element={
               <ProtectedRoute>
-                <Main setIsAuth={setIsAuth} isAuth={isAuth}/>
+                <Main setIsAuth={setIsAuth} isAuth={isAuth} />
               </ProtectedRoute>
             }
           />
-          <Route path="/" element={<Home 
-          location={location} setlocation={setLocation}
-          flatType={flatType} setFlatType={setFlatType}
-          budget={budget} setBudget={setBudget}
-          navLocation={navLocation} setNavLocation={setNavLocation}
-          propertyV={propertyV} setPropertyV={setPropertyV}
+          <Route path="/" element={<Home
+            location={location} setlocation={setLocation}
+            flatType={flatType} setFlatType={setFlatType}
+            budget={budget} setBudget={setBudget}
+            navLocation={navLocation} setNavLocation={setNavLocation}
+            propertyV={propertyV} setPropertyV={setPropertyV}
           />} />
-          <Route path="/subscription" element={<Subscription setNavLocation={setNavLocation}/>} />
-          <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
+          <Route path="/subscription" element={<Subscription setNavLocation={setNavLocation} />} />
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation} />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
-          <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
-          <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/sidebar" element={<Sidebar />} />
+          <Route path="/phonesignup" element={<PhoneSignUp />}></Route>
+          <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth} />} />
+          <Route path="/userproperties" element={<UserProperties setIsAuth={setIsAuth} isAuth={isAuth} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/analytics" element={<Analytics />} />
+
         </Routes>
       </UserAuthContextProvider>
     </Router>
+
   );
 }
 export default App;

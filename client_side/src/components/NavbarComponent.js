@@ -31,6 +31,7 @@ const NavbarComponent = ({setNavLocation}) => {
             <Link className='nav-link' to="/login">Login</Link>
             <Link className='nav-link' to="/subscription">subscription</Link>
             <Link className='nav-link' to="/Addproperty">AddProperty</Link>
+          
           </Nav>
         </Navbar.Collapse>
       </Container>
