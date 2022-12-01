@@ -7,7 +7,6 @@ import ProtectedRoute from "./components/ProductRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Subscription from "./components/subscription"
 import SellProperty from "./components/SellProperty";
 import UserProperties from "./components/UserProperties";
 import React, { useState } from 'react'
@@ -16,6 +15,9 @@ import Sidebar from './AdminComponent/Sidebar.js';
 import Dashboard from './AdminComponent/Dashboard.js';
 import About from './AdminComponent/About.js';
 import Analytics from './AdminComponent/Analytics.js';
+import Subscription from "./components/Subscription"
+import PropertyDetails from "./components/PropertyDetails"
+import SellerView from "./components/SellerView";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -23,6 +25,7 @@ function App() {
   const [flatType, setFlatType] = useState("");
   const [budget, setBudget] = useState("");
   const [navLocation, setNavLocation] = useState("");
+  const [userid, setuserid] = useState("");
   const [propertyV, setPropertyV] = useState('Sell');
   console.log(propertyV);
 
@@ -38,24 +41,26 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/" element={<Home
-            location={location} setlocation={setLocation}
-            flatType={flatType} setFlatType={setFlatType}
-            budget={budget} setBudget={setBudget}
-            navLocation={navLocation} setNavLocation={setNavLocation}
-            propertyV={propertyV} setPropertyV={setPropertyV}
+          <Route path="/" element={<Home 
+          location={location} setlocation={setLocation}
+          flatType={flatType} setFlatType={setFlatType}
+          budget={budget} setBudget={setBudget}
+          navLocation={navLocation} setNavLocation={setNavLocation}
+          propertyV={propertyV} setPropertyV={setPropertyV}
+          userid={userid} setuserid={setuserid}
           />} />
-          <Route path="/subscription" element={<Subscription setNavLocation={setNavLocation} />} />
-          <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation} />} />
+          <Route path="/subscription" element={<Subscription setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
+          <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}/>} />
+          <Route path="/sellerview" element={<SellerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sidebar" element={<Sidebar />} />
-          <Route path="/phonesignup" element={<PhoneSignUp />}></Route>
-          <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth} />} />
-          <Route path="/userproperties" element={<UserProperties setIsAuth={setIsAuth} isAuth={isAuth} />} />
           <Route path="/about" element={<About />} />
           <Route path="/analytics" element={<Analytics />} />
-
         </Routes>
       </UserAuthContextProvider>
     </Router>

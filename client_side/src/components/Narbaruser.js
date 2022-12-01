@@ -36,6 +36,12 @@ const Narbaruser = ({ setIsAuth, isAuth }) => {
                                 <a class="nav-link" href="/Addproperty">Sell property</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/sellerview">Seller View</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/subscription">Subscription</a>
+                            </li>
+                            <li class="nav-item">
                                 <Button variant="danger" onClick={handleLogout}>
                                     Log out
                                 </Button>
