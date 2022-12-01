@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "initialize": "^7.3.1"
+    "initialize": "^7.3.1",
+    "react-icons": "^4.7.1"
   }
 }
