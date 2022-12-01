@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import SearchBar from './SearchBar'
 import M2 from './M2'
 import NavbarComponent from './NavbarComponent'
-function Home({ location, setlocation, flatType, setFlatType, budget, setBudget, navLocation, setNavLocation,propertyV,setPropertyV }) {
+function Home({ location, setlocation, flatType, setFlatType, budget, setBudget, navLocation, setNavLocation,propertyV,setPropertyV,userid,setuserid }) {
   const [propertyU, setPropertyU] = useState("")
   setPropertyV(propertyU)
   return (
@@ -40,7 +40,7 @@ function Home({ location, setlocation, flatType, setFlatType, budget, setBudget,
           setlocation={setlocation}
           setFlatType={setFlatType}
           setBudget={setBudget} />
-        <M2 location={location} flatType={flatType} budget={budget} navLocation={navLocation} propertyV={propertyV}/></div>
+        <M2 location={location} flatType={flatType} budget={budget} navLocation={navLocation} propertyV={propertyV} setuserid={setuserid}/></div>
     </div>
 
   )

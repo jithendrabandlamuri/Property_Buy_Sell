@@ -1,9 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { CheckSquareFill, Check2 } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
 import NavbarComponent from "./NavbarComponent";
 
-function subscription({setNavLocation}) {
+function Subscription({setNavLocation,setSubAmount}) {
+    const [amount, setAmount] = useState("")
+    setSubAmount(amount)
     return (
         <>
             <NavbarComponent setNavLocation={setNavLocation} />
@@ -51,7 +53,7 @@ function subscription({setNavLocation}) {
                                         <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 100</b></span></li>
                                         <li style={{ marginLeft: "8%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                     </ul>
-                                    <button type="button" class="btn btn-lg btn-block btn-primary">Buy now</button>
+                                    <button type="button" class="btn btn-lg btn-block btn-primary" value="1500" onClick={(e) => setAmount(e.target.value)}>Buy now</button>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +70,7 @@ function subscription({setNavLocation}) {
                                         <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 150</b></span></li>
                                         <li style={{ marginLeft: "9%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                     </ul>
-                                    <button type="button" class="btn btn-lg btn-block btn-primary">Buy now</button>
+                                    <button type="button" class="btn btn-lg btn-block btn-primary" value="3000" onClick={(e) => setAmount(e.target.value)}>Buy now</button>
                                 </div>
                             </div>
                         </div>
@@ -135,4 +137,4 @@ function subscription({setNavLocation}) {
     )
 }
 
-export default subscription
+export default Subscription

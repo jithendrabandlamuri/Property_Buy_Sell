@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { Row, Col, Container, Card, Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-function M2({ location, budget, flatType, navLocation, propertyV }) {
+function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
   const [userProperties, setUserProperties] = useState([]);
   const postCollectionRef = collection(db, "properties");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getProperties = async () => {
@@ -17,6 +19,12 @@ function M2({ location, budget, flatType, navLocation, propertyV }) {
     getProperties();
   });
 
+  const handleClick = (e) => {
+    setuserid("0THoxo8DcAfRkkxQB7AdcXQr9G43")
+    navigate("/propertydetails");
+  }
+
+
   const renderCard = (card, id) => {
     return (
       <Col
@@ -27,7 +35,7 @@ function M2({ location, budget, flatType, navLocation, propertyV }) {
           <Card.Img
             style={{ height: "300px" }}
             variant="top"
-            src={card.image}
+            src={card.coverImg}
           />
           <Card.Body>
             <Card.Title style={{ height: "35px", marginBottom: "0px" }}>
@@ -43,6 +51,7 @@ function M2({ location, budget, flatType, navLocation, propertyV }) {
                 style={{ height: "45px", borderRadius: "0.5" }}
                 className="float-end"
                 variant="primary"
+                onClick={handleClick}
               >
                 View Details
               </Button>

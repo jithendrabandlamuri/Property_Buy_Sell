@@ -4,13 +4,13 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyBp55M63LDOD4WUc5GD3phwQk8jj9NsfzY",
-  authDomain: "login-32fea.firebaseapp.com",
-  projectId: "login-32fea",
-  storageBucket: "login-32fea.appspot.com",
-  messagingSenderId: "846855944805",
-  appId: "1:846855944805:web:a82886cd4786d00451648c",
-  measurementId: "G-LTE818Q6N8",
+  apiKey: "AIzaSyAFzhzoKjWBu0xi_2Ru4viRd4IM50XTO5k",
+  authDomain: "mockproject-80d36.firebaseapp.com",
+  projectId: "mockproject-80d36",
+  storageBucket: "mockproject-80d36.appspot.com",
+  messagingSenderId: "297517157251",
+  appId: "1:297517157251:web:8b0ad2082abf384ea584b6",
+  measurementId: "G-VFTWNWSFNN"
 });
 
 const app = firebase;
