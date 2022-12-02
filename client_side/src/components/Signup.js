@@ -34,7 +34,7 @@ const Signup = ({ setNavLocation }) => {
     <NavbarComponent setNavLocation={setNavLocation} />
       <div className="container-fluid d-flex justify-content-center intro-section">
         <div className="row ">
-          <div classNameName="flex ">
+          <div className="flex ">
             <div className="content">
               <div className="brand-wrapper">
                 <h1>RentLo</h1>

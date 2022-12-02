@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
 const NavbarComponent = ({setNavLocation}) => {
-  const [navLocation1, setNavLocation1] = useState("");
-  setNavLocation(navLocation1)
+
   const location = [
     "a",
     "b"
@@ -20,11 +19,11 @@ const NavbarComponent = ({setNavLocation}) => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Form.Select onChange={(e) => setNavLocation1(e.target.value)}>
+            <Form.Select onChange={(e) => setNavLocation(e.target.value)}>
               <option  value="location">Location</option>
               {
                 location.map(data => (
-                  <option value={data}>{data}</option>
+                  <option value={data} key={data}>{data}</option>
                 ))
               }
             </Form.Select>

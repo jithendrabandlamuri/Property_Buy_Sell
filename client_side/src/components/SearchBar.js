@@ -1,16 +1,11 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Row,
   Col,
   Button,
-  Form,
-  InputGroup,
-  Breadcrumb,
+  Form
 } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { db } from "../firebase";
-import { collection, getDocs, where, query } from "firebase/firestore";
 
 function SearchBar({setlocation,setFlatType,setBudget}) {
   const [location1, setLocation1] = useState("");
@@ -20,7 +15,6 @@ function SearchBar({setlocation,setFlatType,setBudget}) {
   const flats = ["1 bhk", "2 bhk", "3 BHK", "4 BHK", "5 BHK"];
   const budgets = ["min", "1", "5 Lakhs", "8 Lakhs"];
 
-  const propData = collection(db, "properties");
   const handleSubmit = async(e) => {
     e.preventDefault();
     setlocation(location1)
@@ -55,7 +49,7 @@ function SearchBar({setlocation,setFlatType,setBudget}) {
               >
                 <option>Flat</option>
                 {flats.map((data) => (
-                  <option>{data}</option>
+                  <option key={data}>{data}</option>
                 ))}
               </Form.Select>
             </Col>
@@ -67,7 +61,7 @@ function SearchBar({setlocation,setFlatType,setBudget}) {
               >
                 <option>Budget</option>
                 {budgets.map((data) => (
-                  <option>{data}</option>
+                  <option key={data}>{data}</option>
                 ))}
               </Form.Select>
             </Col>
