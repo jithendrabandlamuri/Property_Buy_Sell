@@ -73,65 +73,65 @@ function SellProperty({ setIsAuth, isAuth }) {
     return (
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
-            <div class="container d-flex justify-content-center">
+            <div className="container d-flex justify-content-center">
                 <form>
-                    <div class="row">
-                        <div class="col-lg-4">
+                    <div className="row">
+                        <div className="col-lg-4">
                             <h5 >Select Cover Image</h5>
                         </div>
-                        <div class="col-lg-8">
+                        <div className="col-lg-8">
                             <input type="file" name="coverimg" accept="/image" onChange={(e) => handleCoverImg(e)} />
                         </div>
                     </div><br />
-                    <div class="row">
-                        <div class="col-lg-6">
+                    <div className="row">
+                        <div className="col-lg-6">
                             <h5 > City</h5>
-                            <input type="text" class="form-control" placeholder="City" onChange={(e) => setCity(e.target.value)}></input>
+                            <input type="text" className="form-control" placeholder="City" onChange={(e) => setCity(e.target.value)}></input>
                         </div>
-                        <div class="col-lg-6">
+                        <div className="col-lg-6">
                             <h5 >Locality</h5>
-                            <input type="text" class="form-control" placeholder="Locality" onChange={(e) => setLocality(e.target.value)}></input>
+                            <input type="text" className="form-control" placeholder="Locality" onChange={(e) => setLocality(e.target.value)}></input>
                         </div>
                     </div><br />
-                    <div class="row">
-                        <div class="col-lg-12">
+                    <div className="row">
+                        <div className="col-lg-12">
                             <h5 >Address</h5>
-                            <input type="text" class="form-control" placeholder="Enter detail address" onChange={(e) => setAddress(e.target.value)}></input>
+                            <input type="text" className="form-control" placeholder="Enter detail address" onChange={(e) => setAddress(e.target.value)}></input>
                         </div>
                     </div><br />
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <h5 class="label">Property Type</h5>
+                    <div className="row">
+                        <div className="col-lg-3">
+                            <h5 className="label">Property Type</h5>
                         </div>
-                        <div class="col-lg-9">
-                            <b><label class="radio-container">
-                                <input type="radio" class="form-check-input" name="exampleRadios" value="Flat" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;Flat
+                        <div className="col-lg-9">
+                            <b><label className="radio-container">
+                                <input type="radio" className="form-check-input" name="exampleRadios" value="Flat" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;Flat
                             </label></b>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <b><label class="radio-container">
-                                <input type="radio" class="form-check-input" name="exampleRadios" value="House" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;House
+                            <b><label className="radio-container">
+                                <input type="radio" className="form-check-input" name="exampleRadios" value="House" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;House
                             </label></b>
                         </div>
                     </div><br />
-                    <div class="row">
-                        <div class="col-lg-2">
+                    <div className="row">
+                        <div className="col-lg-2">
                             <h5>Flat Type</h5>
                         </div>
-                        <div class="col-lg-4">
-                            <select name="flatType" tabindex="-1" class=" col-lg-9 form-control " onChange={(e) => setFlatType(e.target.value)}>
+                        <div className="col-lg-4">
+                            <select name="flatType" tabindex="-1" className=" col-lg-9 form-control " onChange={(e) => setFlatType(e.target.value)}>
                                 <option disabled="disabled" selected="selected">Choose Flat Type</option>
                                 <option value="1 bhk" defaultChecked>1 bhk</option>
                                 <option value="2 bhk">2 bhk</option>
                                 <option value="3 bhk">3 bhk</option>
                             </select>
                         </div>
-                        <div class="col-lg-1">
+                        <div className="col-lg-1">
                             <h5 >Area</h5>
                         </div>
-                        <div class="col-lg-3">
-                            <input type="text" class="form-control" placeholder="Enter Area" onChange={(e) => setArea(e.target.value)}></input>
+                        <div className="col-lg-3">
+                            <input type="text" className="form-control" placeholder="Enter Area" onChange={(e) => setArea(e.target.value)}></input>
                         </div>
-                        <div class="col-lg-2">
-                            <select name="flatType" tabindex="-1" class=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setAreaV(e.target.value)}>
+                        <div className="col-lg-2">
+                            <select name="flatType" tabindex="-1" className=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setAreaV(e.target.value)}>
                                 <option selected="selected" value="Sq-ft">Sq-ft</option>
                                 <option value="Sq-m">Sq-m</option>
                                 <option value="Sq-yrd">Sq-yrd</option>
@@ -142,29 +142,29 @@ function SellProperty({ setIsAuth, isAuth }) {
                             </select>
                         </div>
                     </div><br />
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="row">
+                    <div className="row">
+                        <div className="col-lg-5">
+                            <div className="row">
                                 <h5>Property Type</h5>
-                                <div class="btn-group">
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="Sell" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
-                                    <label class="btn btn-outline-secondary" for="btnradio1">Sell</label>
+                                <div className="btn-group">
+                                    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" value="Sell" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
+                                    <label className="btn btn-outline-secondary" for="btnradio1">Sell</label>
 
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="Rent" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
-                                    <label class="btn btn-outline-secondary" for="btnradio2">Rent</label>
+                                    <input type="radio" className="btn-check" name="btnradio" id="btnradio2" value="Rent" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
+                                    <label className="btn btn-outline-secondary" for="btnradio2">Rent</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-7">
-                            <div class="row">
+                        <div className="col-lg-7">
+                            <div className="row">
                                 <h5>Price</h5>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" placeholder="Expected price" onChange={(e) => setPrice(e.target.value)}></input>
+                            <div className="row">
+                                <div className="col-lg-7">
+                                    <input type="text" className="form-control" placeholder="Expected price" onChange={(e) => setPrice(e.target.value)}></input>
                                 </div>
-                                <div class="col-lg-5">
-                                    <select name="flatType" tabindex="-1" class=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setPriceV(e.target.value)}>
+                                <div className="col-lg-5">
+                                    <select name="flatType" tabindex="-1" className=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setPriceV(e.target.value)}>
                                         <option selected="selected" value="lakh">Lakh</option>
                                         <option value="crore">Crore</option>
                                         <option value="thousand">Thousand</option>
@@ -173,7 +173,7 @@ function SellProperty({ setIsAuth, isAuth }) {
                             </div>
                         </div>
                     </div><br />
-                    <button type="submit" class="btn btn-primary " onClick={addproperty}>Submit</button>
+                    <button type="submit" className="btn btn-primary " onClick={addproperty}>Submit</button>
                 </form>
 
             </div >

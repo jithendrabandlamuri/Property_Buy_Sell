@@ -185,31 +185,31 @@ function PropertyDetails({ userid, setNavLocation }) {
                     </Modal.Header>
                     <Modal.Body>
                         <form>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Name</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    className="form-control"
                                     placeholder="Enter Name"
                                     onChange={(e) => setName(e.target.value)}
                                 ></input>
                             </div>
                             <br />
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Email</label>
                                 <input
                                     type="email"
-                                    class="form-control"
+                                    className="form-control"
                                     placeholder="Enter Email"
                                     onChange={(e) => setEmail(e.target.value)}
                                 ></input>
                             </div>
                             <br />
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label>Phone Number</label>
                                 <input
                                     type="text"
-                                    class="form-control"
+                                    className="form-control"
                                     placeholder="Enter Phone Number"
                                     onChange={(e) => setphno(e.target.value)}
                                 ></input>
@@ -217,7 +217,7 @@ function PropertyDetails({ userid, setNavLocation }) {
                             <br />
                             <button
                                 type="submit"
-                                class="btn btn-primary"
+                                className="btn btn-primary"
                                 onClick={handleSubmit}
                             >
                                 Submit

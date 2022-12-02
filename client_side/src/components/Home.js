@@ -12,31 +12,31 @@ function Home({ location, setlocation, flatType, setFlatType, budget, setBudget,
       <div>
         <NavbarComponent setNavLocation={setNavLocation} />
         <br/>
-        <div class="col  d-flex justify-content-center align-items-center">
-          <div class="btn-group">
+        <div className="col  d-flex justify-content-center align-items-center">
+          <div className="btn-group">
             <input
               type="radio"
-              class="btn-check"
+              className="btn-check"
               name="btnradio"
               id="btnradio1"
               value="Sell"
-              autocomplete="off"
+              autoComplete="off"
               onChange={(e) => setPropertyU(e.target.value)}
             ></input>
-            <label class="btn btn-outline-secondary" for="btnradio1">
+            <label className="btn btn-outline-secondary" htmlFor="btnradio1">
               Sell
             </label>
 
             <input
               type="radio"
-              class="btn-check"
+              className="btn-check"
               name="btnradio"
               id="btnradio2"
               value="Rent"
-              autocomplete="off"
+              autoComplete="off"
               onChange={(e) => setPropertyU(e.target.value)}
             ></input>
-            <label class="btn btn-outline-secondary" for="btnradio2">
+            <label className="btn btn-outline-secondary" htmlFor="btnradio2">
               Rent
             </label>
           </div>

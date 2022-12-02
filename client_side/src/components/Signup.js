@@ -32,17 +32,17 @@ const Signup = ({ setNavLocation }) => {
   return (
     <>
     <NavbarComponent setNavLocation={setNavLocation} />
-      <div class="container-fluid d-flex justify-content-center intro-section">
-        <div class="row ">
-          <div className="flex ">
-            <div class="content">
-              <div class="brand-wrapper">
+      <div className="container-fluid d-flex justify-content-center intro-section">
+        <div className="row ">
+          <div classNameName="flex ">
+            <div className="content">
+              <div className="brand-wrapper">
                 <h1>RentLo</h1>
               </div>
-              <div class="intro-content-wrapper">
-                <h1 class="intro-title">Welcome to website !</h1>
-                <p class="intro-text">Choose your future Home here...!</p>
-                {/* <a href="#!" class="btn btn-read-more">Read more</a> */}
+              <div className="intro-content-wrapper">
+                <h1 className="intro-title">Welcome to website !</h1>
+                <p className="intro-text">Choose your future Home here...!</p>
+                {/* <a href="#!" className="btn btn-read-more">Read more</a> */}
               </div>
 
             </div>

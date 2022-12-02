@@ -50,27 +50,27 @@ function Subscription({ setIsAuth, isAuth }) {
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
             <div className="back_image">
-                <div class='container'>
+                <div className='container'>
                     <br /><br />
                     <div >Title</div><br />
                     <h5 >Pay Zero Commission &amp; Call Owners Directly</h5>
                     <br />
-                    <div class="row">
-                        <div class="col-sm-4">
+                    <div className="row">
+                        <div className="col-sm-4">
                             <Check2 />
                             <b>
                                 <span > Save Money:</span>
                                 <span >Get Direct Access to Owner Properties</span>
                             </b>
                         </div>
-                        <div class="col-sm-4 ">
+                        <div className="col-sm-4 ">
                             <Check2 />
                             <b>
                                 <span > Save Effort:</span>
                                 <span >Help from Relationship Manager</span>
                             </b>
                         </div>
-                        <div class="col-sm-4">
+                        <div className="col-sm-4">
                             <Check2 />
                             <b>
                                 <span >  Save Time:</span>
@@ -79,38 +79,38 @@ function Subscription({ setIsAuth, isAuth }) {
                         </div>
                     </div>
                     <br /><br />
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card text-white bg-secondary mb-3">
-                                <div class="card-header">
-                                    <h4 class="my-0 font-weight-normal">BASIC</h4>
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <div className="card text-white bg-secondary mb-3">
+                                <div className="card-header">
+                                    <h4 className="my-0 font-weight-normal">BASIC</h4>
                                 </div>
-                                <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">₹{basicPrice} </h1>
-                                    <ul class="list-unstyled mt-3 mb-4">
+                                <div className="card-body">
+                                    <h1 className="card-title pricing-card-title">₹{basicPrice} </h1>
+                                    <ul className="list-unstyled mt-3 mb-4">
                                         <li style={{ marginLeft: "7%" }}>No. of Owners you can contact<span style={{ marginLeft: "10%" }}>: <b> 20</b></span></li>
                                         <li style={{ marginLeft: "11%" }}>LIVE Video Tour<span style={{ marginLeft: "31%" }}>: <b> Max 3</b></span></li>
                                         <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 100</b></span></li>
                                         <li style={{ marginLeft: "8%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                     </ul>
-                                    <button type="button" class="btn btn-lg btn-block btn-primary" onClick={() => { handleSubmit(basicPrice) }}>Buy Now</button>
+                                    <button type="button" className="btn btn-lg btn-block btn-primary" onClick={() => { handleSubmit(basicPrice) }}>Buy Now</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 ">
-                            <div class="card text-white bg-success mb-3">
-                                <div class="card-header">
-                                    <h4 class="my-0 font-weight-normal">PRO</h4>
+                        <div className="col-sm-6 ">
+                            <div className="card text-white bg-success mb-3">
+                                <div className="card-header">
+                                    <h4 className="my-0 font-weight-normal">PRO</h4>
                                 </div>
-                                <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">₹3000 </h1>
-                                    <ul class="list-unstyled mt-3 mb-4">
+                                <div className="card-body">
+                                    <h1 className="card-title pricing-card-title">₹3000 </h1>
+                                    <ul className="list-unstyled mt-3 mb-4">
                                         <li style={{ marginLeft: "7%" }}>No. of Owners you can contact<span style={{ marginLeft: "10%" }}>: <b> 50</b></span></li>
                                         <li style={{ marginLeft: "11%" }}>LIVE Video Tour<span style={{ marginLeft: "31%" }}>: <b> Max 8</b></span></li>
                                         <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 150</b></span></li>
                                         <li style={{ marginLeft: "9%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
                                     </ul>
-                                    <button type="button" class="btn btn-lg btn-block btn-primary" onClick={() => { handleSubmit(proPrice) }}>Buy now</button>
+                                    <button type="button" className="btn btn-lg btn-block btn-primary" onClick={() => { handleSubmit(proPrice) }}>Buy now</button>
                                 </div>
                             </div>
                         </div>

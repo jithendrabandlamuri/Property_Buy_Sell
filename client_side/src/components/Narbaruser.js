@@ -17,31 +17,31 @@ const Narbaruser = ({ setIsAuth, isAuth }) => {
         }
     };
     return (
-        <><nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/userMain">Home</a>
+        <><nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <a className="nav-link" href="/userMain">Home</a>
                     </li>
                     {!isAuth ? (
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/login">Login</a>
                         </li>
                     ) : (
                         <>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/userproperties">My Properties</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/userproperties">My Properties</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/Addproperty">Sell property</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/Addproperty">Sell property</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/sellerview">Seller View</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/sellerview">Seller View</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/subscription">Subscription</a>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/subscription">Subscription</a>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Button variant="danger" onClick={handleLogout}>
                                     Log out
                                 </Button>
