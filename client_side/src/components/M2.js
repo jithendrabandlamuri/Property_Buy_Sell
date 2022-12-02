@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
-import { auth, db } from "../firebase";
-import { Row, Col, Container, Card, Button, Form } from "react-bootstrap";
+import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
 function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
@@ -19,10 +18,6 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
     getProperties();
   });
 
-  // const handleClick = (e) => {
-  //   setuserid("0THoxo8DcAfRkkxQB7AdcXQr9G43")
-  //   navigate("/propertydetails");
-  // }
   function handleClick(id) {
     setuserid(id)
     navigate("/propertydetails");
@@ -30,66 +25,56 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
 
   const renderCard = (card, id) => {
     return (
-      <Col
-        className="d-flex"
-        style={{ marginTop: "10px", marginBottom: "10px" }}
-      >
-        <Card style={{ width: "18rem" }} className="shadow-lg" key={id}>
-          <Card.Img
+      <div className="col-md-3">
+        <div style={{ width: "18rem" }} className="card shadow-lg" key={id}>
+          <img
             style={{ height: "300px" }}
-            variant="top"
             src={card.coverImg}
           />
-          <Card.Body>
-            <Card.Title style={{ height: "35px", marginBottom: "0px" }}>
-              {card.title}
-            </Card.Title>
-            <p style={{ height: "30px" }}>
-              <Card.Subtitle>{card.subtitle}</Card.Subtitle>
-            </p>
-            <Card.Text>
-              <b style={{ height: "20px" }}> {card.text}</b> <br />
-              <i style={{ height: "10px" }}> onwards </i>
-              <Button
-                style={{ height: "45px", borderRadius: "0.5" }}
-                className="float-end"
-                variant="primary"
-                onClick={() => { handleClick(id) }}
-              >
-                View Details
-              </Button>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
+          <div className="card-body">
+            <div className="card-title">
+              {card.propertyName}
+            </div>
+            <div className="card-text">
+              <b style={{ height: "20px" }}> {card.city}</b>
+              <i style={{ height: "10px" }}> {card.locality} </i>
+            </div>
+            <div className="card-text">
+              <b style={{ height: "20px" }}> {card.flatType}</b>
+              <b style={{ height: "10px" }}> {card.price} </b>
+            </div>
+            <button
+              className="btn btn-primary"
+              onClick={() => { handleClick(id) }}
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
     );
   };
 
   return (
-    <Container>
-      <div className="mt-5" style={{ marginRight: "30px", marginLeft: "50px" }}>
-        <Row className="justify-content-between">
-          {/* <Col className="col-lg-4 d-flex justify-content-between align-items-stretch m-5 "> */}
-          {
-            userProperties.map((post) => {
-              if (post.propertyType === propertyV) {
-                return renderCard(post, post.id);
-              } else if (
-                post.city === location &&
-                post.flatType === flatType &&
-                post.price === budget
-              ) {
-                return renderCard(post, post.id);
-              } else if (post.city === navLocation) {
-                return renderCard(post, post.id);
-              }
-            })
-            // {setPropertyT("h")}
-          }
-          {/* </Col> */}
-        </Row>
+    <div className="container mx-auto mt-4">
+      <div className="row">
+        {
+          userProperties.map((post) => {
+            if (post.propertyType === propertyV) {
+              return renderCard(post, post.id);
+            } else if (
+              post.city === location &&
+              post.flatType === flatType &&
+              post.price === budget
+            ) {
+              return renderCard(post, post.id);
+            } else if (post.city === navLocation) {
+              return renderCard(post, post.id);
+            }
+          })
+        }
       </div>
-    </Container>
+    </div>
   );
 }
 

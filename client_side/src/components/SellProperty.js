@@ -6,6 +6,7 @@ import Navbaruser from "./Narbaruser"
 
 function SellProperty({ setIsAuth, isAuth }) {
     const [coverImg, setCoverImg] = useState(null)
+    const [propertyName, setPropertyName] = useState("")
     const [city, setCity] = useState("")
     const [locality, setLocality] = useState("")
     const [address, setAddress] = useState("")
@@ -51,6 +52,7 @@ function SellProperty({ setIsAuth, isAuth }) {
                     console.log("img url", url);
                     addDoc(postCollectionRef, {
                         coverImg: url,
+                        propertyName,
                         city,
                         locality,
                         address,
@@ -81,6 +83,12 @@ function SellProperty({ setIsAuth, isAuth }) {
                         </div>
                         <div class="col-lg-8">
                             <input type="file" name="coverimg" accept="/image" onChange={(e) => handleCoverImg(e)} />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h5 >Property Name</h5>
+                            <input type="text" class="form-control" placeholder="Enter property name" onChange={(e) => setPropertyName(e.target.value)}></input>
                         </div>
                     </div><br />
                     <div class="row">

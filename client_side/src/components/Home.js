@@ -6,8 +6,6 @@ function Home({ location, setlocation, flatType, setFlatType, budget, setBudget,
   const [propertyU, setPropertyU] = useState("")
   setPropertyV(propertyU)
   return (
-
-
     <div>
       <div>
         <NavbarComponent setNavLocation={setNavLocation} />
