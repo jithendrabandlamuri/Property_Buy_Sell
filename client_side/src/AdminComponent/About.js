@@ -1,11 +1,61 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { getDocs, collection } from 'firebase/firestore'
+import { db } from '../firebase'
 
-const About = () => {
+function About() {
+    const [userProperties, setUserProperties] = useState([])
+    const [buyers, setBuyers] = useState([])
+    const postCollectionRefP = collection(db, "properties")
+    const postCollectionRefB = collection(db, "buyers")
+
+    useEffect(() => {
+        const getProperties = async () => {
+            const data = await getDocs(postCollectionRefP)
+            setUserProperties(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        }
+        const getBuyers = async () => {
+            const data = await getDocs(postCollectionRefB)
+            setBuyers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        }
+        getProperties()
+        getBuyers()
+    }, [])
+
     return (
-        <div>
-            <h1>About page</h1>
-        </div>
-    );
-};
+        <>
+            <table className="table" style={{textAlign:"center"}}>
+                <thead>
+                    <tr>
+                        <th rowSpan="2">Property Name</th>
+                        <th colSpan="3">Buyer Details</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        userProperties.map((post) => {
+                            return (buyers.map((post1, Index) => {
+                                if (post1.sellerid === post.id) {
+                                    return (
+                                        <tr key={Index}>
+                                            <td>{post.propertyName}</td>
+                                            <td>{post1.name}</td>
+                                            <td>{post1.email}</td>
+                                            <td>{post1.phno}</td>
+                                        </tr>
+                                    )
+                                }
+                            }))
+                        })
+                    }
+                </tbody>
+            </table>
+        </>
+    )
+}
 
-export default About;
+export default About

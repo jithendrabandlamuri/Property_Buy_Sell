@@ -25,7 +25,7 @@ function SellerView({ setIsAuth, isAuth }) {
     return (
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
-            <table className="table" style={{textAlign:"center"}}>
+            <table className="table" style={{ textAlign: "center" }}>
                 <thead>
                     <tr>
                         <th rowSpan="2">Property Name</th>
@@ -41,7 +41,7 @@ function SellerView({ setIsAuth, isAuth }) {
                     {
                         userProperties.map((post) => {
                             return (buyers.map((post1, Index) => {
-                                if (post1.sellerid === post.id) {
+                                if (post1.sellerid === post.id && post.author.id === auth.currentUser.uid) {
                                     return (
                                         <tr key={Index}>
                                             <td>{post.propertyName}</td>
