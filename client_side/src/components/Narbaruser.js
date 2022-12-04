@@ -39,6 +39,9 @@ const Narbaruser = ({ setIsAuth, isAuth }) => {
                                 <a className="nav-link" href="/sellerview">Seller View</a>
                             </li>
                             <li className="nav-item">
+                                <a className="nav-link" href="/buyerview">Buyer View</a>
+                            </li>
+                            <li className="nav-item">
                                 <a className="nav-link" href="/subscription">Subscription</a>
                             </li>
                             <li className="nav-item">

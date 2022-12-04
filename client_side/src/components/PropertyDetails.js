@@ -23,7 +23,7 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
         if (!isAuth) {
             navigate('/login')
         }
-        if(!subscriber) {
+        if (!subscriber) {
             alert("You need to take Subscription to see seller details")
         }
         else {
@@ -60,7 +60,7 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
                 }
             })
         }
-    },[]);
+    }, []);
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -68,17 +68,23 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
     const userCollection = collection(db, "buyers");
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            await addDoc(userCollection, {
-                sellerid: userid,
-                name,
-                email,
-                phno,
-            });
-            navigate("/propertydetails");
-            handleClose();
-        } catch (err) {
-            console.log(err.message);
+        if (!isAuth) {
+            navigate('/login')
+        }
+        else {
+            try {
+                await addDoc(userCollection, {
+                    sellerid: userid,
+                    uid:auth.currentUser.uid,
+                    name,
+                    email,
+                    phno,
+                });
+                navigate("/propertydetails");
+                handleClose();
+            } catch (err) {
+                console.log(err.message);
+            }
         }
     };
 

@@ -18,6 +18,7 @@ import Analytics from './AdminComponent/Analytics.js';
 import Subscription from "./components/Subscription"
 import PropertyDetails from "./components/PropertyDetails"
 import SellerView from "./components/SellerView";
+import BuyerView from "./components/BuyerView";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -65,6 +66,7 @@ function App() {
           <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}  isAuth={isAuth} setIsAuth={setIsAuth}  subscriber={subscriber} setSubscriber={setSubscriber}/>} />
           <Route path="/sellerview" element={<SellerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/buyerview" element={<BuyerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/about" element={<About />} />
