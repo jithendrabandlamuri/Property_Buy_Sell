@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CheckSquareFill, Check2 } from 'react-bootstrap-icons';
 import Accordion from 'react-bootstrap/Accordion';
 import Navbaruser from "./Narbaruser"
 import { useNavigate } from 'react-router-dom'
+import { db, auth } from "../firebase";
+import { getDocs, collection, addDoc } from "firebase/firestore";
 
 const proPrice = 3000;
 const basicPrice = 1500;
@@ -10,39 +12,66 @@ const basicPrice = 1500;
 function Subscription({ setIsAuth, isAuth }) {
     let navigate = useNavigate()
 
+    const [isSubscriber, setIsSubscriber] = useState([]);
+    const postCollectionRefForSub = collection(db, "subscribers");
+
+
     useEffect(() => {
         if (!isAuth) {
             navigate('/login')
         }
+        const getSubscribers = async () => {
+            const data = await getDocs(postCollectionRefForSub);
+            setIsSubscriber(
+                data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+            );
+        };
+        getSubscribers();
     }, [])
 
+    const postCollectionRef = collection(db, "subscribers");
+
     function handleSubmit(price) {
-        if (price) {
-            var options = {
-                key: "rzp_test_eMoNKm1nGhee9f",
-                key_secret: "7CcklJBXFXeib85KnDzcVffL",
-                amount: price * 100,
-                currency: "INR",
-                name: "STARTUP_PROJECTS",
-                description: "for testing purpose",
-                handler: function (response) {
-                    alert(response.razorpay_payment_id);
-                },
-                prefill: {
-                    name: "Velmurugan",
-                    email: "mvel1620r@gmail.com",
-                    contact: "7904425033"
-                },
-                notes: {
-                    address: "Razorpay Corporate office"
-                },
-                theme: {
-                    color: "#3399cc"
-                }
-            };
-            var pay = new window.Razorpay(options);
-            pay.open();
-        }
+        isSubscriber.map((post) => {
+            if (post.sId === auth.currentUser.uid) {
+                alert("Already a Subscriber")
+            }
+            else{
+                var options = {
+                    key: "rzp_test_eMoNKm1nGhee9f",
+                    key_secret: "7CcklJBXFXeib85KnDzcVffL",
+                    amount: price * 100,
+                    currency: "INR",
+                    name: "STARTUP_PROJECTS",
+                    description: "for testing purpose",
+                    handler: function (response) {
+                        alert(response.razorpay_payment_id);
+                        try {
+                            addDoc(postCollectionRef, {
+                                sId: auth.currentUser.uid,
+                                subscriber: true
+                            });
+
+                        } catch (err) {
+                            console.log(err.message);
+                        }
+                    },
+                    prefill: {
+                        name: "Velmurugan",
+                        email: "mvel1620r@gmail.com",
+                        contact: "7904425033"
+                    },
+                    notes: {
+                        address: "Razorpay Corporate office"
+                    },
+                    theme: {
+                        color: "#3399cc"
+                    }
+                };
+                var pay = new window.Razorpay(options);
+                pay.open();
+            }
+        })
     }
 
 
