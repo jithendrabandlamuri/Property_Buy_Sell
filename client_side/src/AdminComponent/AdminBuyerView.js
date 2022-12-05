@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../firebase'
 
-function About() {
+function AdminBuyerView() {
     const [userProperties, setUserProperties] = useState([])
     const [buyers, setBuyers] = useState([])
     const postCollectionRefP = collection(db, "properties")
@@ -65,4 +65,4 @@ function About() {
     )
 }
 
-export default About
+export default AdminBuyerView

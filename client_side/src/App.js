@@ -12,9 +12,8 @@ import UserProperties from "./components/UserProperties";
 import React, { useState } from 'react'
 import PhoneSignUp from "./components/PhoneSignUp";
 import Sidebar from './AdminComponent/Sidebar.js';
-import Dashboard from './AdminComponent/Dashboard.js';
-import About from './AdminComponent/About.js';
-import Analytics from './AdminComponent/Analytics.js';
+import AdminBuyerView from './AdminComponent/AdminBuyerView.js';
+import AdminSellerView from './AdminComponent/AdminSellerView.js';
 import Subscription from "./components/Subscription"
 import PropertyDetails from "./components/PropertyDetails"
 import SellerView from "./components/SellerView";
@@ -67,10 +66,9 @@ function App() {
           <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}  isAuth={isAuth} setIsAuth={setIsAuth}  subscriber={subscriber} setSubscriber={setSubscriber}/>} />
           <Route path="/sellerview" element={<SellerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/buyerview" element={<BuyerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/adminsellerview" element={<AdminSellerView />} />
           <Route path="/sidebar" element={<Sidebar />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/adminbuyerview" element={<AdminBuyerView />} />
         </Routes>
       </UserAuthContextProvider>
     </Router>
