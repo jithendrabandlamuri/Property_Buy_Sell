@@ -18,6 +18,7 @@ import Subscription from "./components/Subscription"
 import PropertyDetails from "./components/PropertyDetails"
 import SellerView from "./components/SellerView";
 import BuyerView from "./components/BuyerView";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));

@@ -30,6 +30,9 @@ const Narbaruser = ({ setIsAuth, isAuth }) => {
                     ) : (
                         <>
                             <li className="nav-item">
+                                <a className="nav-link" href="/UserProfile">My Profile</a>
+                            </li>
+                            <li className="nav-item">
                                 <a className="nav-link" href="/userproperties">My Properties</a>
                             </li>
                             <li className="nav-item">
