@@ -4,8 +4,9 @@ import Accordion from 'react-bootstrap/Accordion';
 import Navbaruser from "./Narbaruser"
 import { useNavigate } from 'react-router-dom'
 
-const proPrice = 3000;
 const basicPrice = 1500;
+const standardPrice = 3000;
+const premiumPrice = 5000
 
 function Subscription({ setIsAuth, isAuth }) {
     let navigate = useNavigate()
@@ -79,38 +80,64 @@ function Subscription({ setIsAuth, isAuth }) {
                         </div>
                     </div>
                     <br /><br />
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <div className="card text-white bg-secondary mb-3">
-                                <div className="card-header">
-                                    <h4 className="my-0 font-weight-normal">BASIC</h4>
+                    <div className='row row-cols-1 row-cols-md-3'>
+                        <div className='col'>
+                            <div className='card text-center'>
+                                <div className='card-header'>
+                                    <h4 className='fw-normal'>
+                                        Basic
+                                    </h4>
                                 </div>
-                                <div className="card-body">
-                                    <h1 className="card-title pricing-card-title">₹{basicPrice} </h1>
+                                <div className='card-body'>
+                                    <h1 className='card-title'>&#8377;1500<small className='text-muted fw-light'>/mo</small></h1>
                                     <ul className="list-unstyled mt-3 mb-4">
-                                        <li style={{ marginLeft: "7%" }}>No. of Owners you can contact<span style={{ marginLeft: "10%" }}>: <b> 20</b></span></li>
-                                        <li style={{ marginLeft: "11%" }}>LIVE Video Tour<span style={{ marginLeft: "31%" }}>: <b> Max 3</b></span></li>
-                                        <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 100</b></span></li>
-                                        <li style={{ marginLeft: "8%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
+                                        <li >Validity (Days)<span >: <b>90</b></span></li>
+                                        <li >LIVE Video Tour<span>: <b> Max 1</b></span></li>
+                                        <li >No. of Owners you can contact<span>: <b> 20</b></span></li>
+                                        <li>Assistance from Relationship Manager : <CheckSquareFill /></li>
                                     </ul>
-                                    <button type="button" className="btn btn-lg btn-block btn-primary" onClick={() => { handleSubmit(basicPrice) }}>Buy Now</button>
+                                    <button type="button" className="btn btn-lg w-100 btn-outline-success" onClick={() => { handleSubmit(basicPrice) }}>Buy now</button>
                                 </div>
+
                             </div>
                         </div>
-                        <div className="col-sm-6 ">
-                            <div className="card text-white bg-success mb-3">
-                                <div className="card-header">
-                                    <h4 className="my-0 font-weight-normal">PRO</h4>
+                        <div className='col'>
+                            <div className='card text-center'>
+                                <div className='card-header'>
+                                    <h4 className='fw-normal'>
+                                        Standard
+                                    </h4>
                                 </div>
-                                <div className="card-body">
-                                    <h1 className="card-title pricing-card-title">₹3000 </h1>
+                                <div className='card-body'>
+                                    <h1 className='card-title'>&#8377;3000<small className='text-muted fw-light'>/mo</small></h1>
                                     <ul className="list-unstyled mt-3 mb-4">
-                                        <li style={{ marginLeft: "7%" }}>No. of Owners you can contact<span style={{ marginLeft: "10%" }}>: <b> 50</b></span></li>
-                                        <li style={{ marginLeft: "11%" }}>LIVE Video Tour<span style={{ marginLeft: "31%" }}>: <b> Max 8</b></span></li>
-                                        <li style={{ marginLeft: "8%" }}>Validity (Days)<span style={{ marginLeft: "32%" }}>: <b> 150</b></span></li>
-                                        <li style={{ marginLeft: "9%" }}>Assistance from Relationship Manager : <CheckSquareFill style={{ marginLeft: "2%" }} /></li>
+                                        <li >Validity (Days)<span >: <b>120</b></span></li>
+                                        <li >LIVE Video Tour<span>: <b> Max 3</b></span></li>
+                                        <li >No. of Owners you can contact<span>: <b> 40</b></span></li>
+                                        <li>Assistance from Relationship Manager : <CheckSquareFill /></li>
                                     </ul>
-                                    <button type="button" className="btn btn-lg btn-block btn-primary" onClick={() => { handleSubmit(proPrice) }}>Buy now</button>
+                                    <button type="button" className="btn btn-lg w-100 btn-outline-success" onClick={() => { handleSubmit(standardPrice) }}>Buy now</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div className='col'>
+                            <div className='card text-center'>
+                                <div className='card-header'>
+                                    <h4 className='fw-normal'>
+                                        Premium
+                                    </h4>
+                                </div>
+                                <div className='card-body'>
+                                    <h1 className='card-title'>&#8377;5000<small className='text-muted fw-light'>/mo</small></h1>
+                                    <ul className="list-unstyled mt-3 mb-4">
+                                        <li >Validity (Days)<span >: <b>265</b></span></li>
+                                        <li >LIVE Video Tour<span>: <b> Max 5</b></span></li>
+                                        <li >No. of Owners you can contact<span>: <b>80</b></span></li>
+                                        <li>Assistance from Relationship Manager : <CheckSquareFill /></li>
+                                    </ul>
+                                    <button type="button" className="btn btn-lg w-100 btn-outline-success" onClick={() => { handleSubmit(premiumPrice) }}>Buy now</button>
                                 </div>
                             </div>
                         </div>
