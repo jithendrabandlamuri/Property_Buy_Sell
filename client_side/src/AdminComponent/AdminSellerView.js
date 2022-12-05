@@ -19,9 +19,9 @@ function AdminSellerView() {
     const renderCard = (card, id) => {
         return (
             <div className="col-md-3">
-                <div style={{ width: "18rem" }} className="card shadow-lg" key={id}>
+                <div className="card shadow-lg" key={id}>
                     <img
-                        style={{ height: "300px" }}
+                        style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
                         src={card.coverImg}
                     />
                     <div className="card-body">
