@@ -25,41 +25,48 @@ function BuyerView({ setIsAuth, isAuth }) {
     return (
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
-            <table className="table" style={{ textAlign: "center" }}>
-                <thead>
-                    <tr>
-                        <th colSpan="6">Property Details</th>
-                    </tr>
-                    <tr>
-                        <th>Property Name</th>
-                        <th>City</th>
-                        <th>Locality</th>
-                        <th>Address</th>
-                        <th>Flat type</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        buyers.map((post1, Index) => {
-                            return (userProperties.map((post) => {
-                                if (post1.sellerid === post.id && post1.uid=== auth.currentUser.uid) {
-                                    return (
-                                        <tr key={Index}>
-                                            <td>{post.propertyName}</td>
-                                            <td>{post.city}</td>
-                                            <td>{post.locality}</td>
-                                            <td>{post.address}</td>
-                                            <td>{post.flatType}</td>
-                                            <td>Rs.{post.price}/-</td>
-                                        </tr>
-                                    )
+            <br/><br/>
+            <div className="container">
+                <div className="card">
+                    <div className="card-body">
+                        <table className="table" style={{ textAlign: "center" }}>
+                            <thead>
+                                <tr>
+                                    <th colSpan="6">Property Details</th>
+                                </tr>
+                                <tr>
+                                    <th>Property Name</th>
+                                    <th>City</th>
+                                    <th>Locality</th>
+                                    <th>Address</th>
+                                    <th>Flat type</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    buyers.map((post1, Index) => {
+                                        return (userProperties.map((post) => {
+                                            if (post1.sellerid === post.id && post1.uid === auth.currentUser.uid) {
+                                                return (
+                                                    <tr key={Index}>
+                                                        <td>{post.propertyName}</td>
+                                                        <td>{post.city}</td>
+                                                        <td>{post.locality}</td>
+                                                        <td>{post.address}</td>
+                                                        <td>{post.flatType}</td>
+                                                        <td>Rs.{post.price}/-</td>
+                                                    </tr>
+                                                )
+                                            }
+                                        }))
+                                    })
                                 }
-                            }))
-                        })
-                    }
-                </tbody>
-            </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

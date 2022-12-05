@@ -7,8 +7,8 @@ const Main = ({ setIsAuth, isAuth,location, setlocation, flatType, setFlatType, 
   const { user } = useUserAuth();
   return (
     <>
-      <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth}/>
-      <div className="p-4 box mt-3 text-center">
+      <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth}/><br/>
+      <div className="text-center">
         Hello Welcome <br />
         {user.email}
       </div>

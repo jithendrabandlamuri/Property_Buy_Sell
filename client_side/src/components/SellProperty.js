@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore"
-import { db, storageRef,auth } from "../firebase";
+import { db, storageRef, auth } from "../firebase";
 import { useNavigate } from 'react-router-dom'
 import Navbaruser from "./Narbaruser"
 
@@ -74,115 +74,119 @@ function SellProperty({ setIsAuth, isAuth }) {
     return (
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
+            <br />
             <div className="container d-flex justify-content-center">
-                <form>
-                    <div className="row">
-                        <div className="col-lg-4">
-                            <h5 >Select Cover Image</h5>
-                        </div>
-                        <div className="col-lg-8">
-                            <input type="file" name="coverimg" accept="/image" onChange={(e) => handleCoverImg(e)} />
-                        </div>
-                    </div><br />
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h5 >Property Name</h5>
-                            <input type="text" class="form-control" placeholder="Enter property name" onChange={(e) => setPropertyName(e.target.value)}></input>
-                        </div>
-                    </div><br />
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h5 > City</h5>
-                            <input type="text" className="form-control" placeholder="City" onChange={(e) => setCity(e.target.value)}></input>
-                        </div>
-                        <div className="col-lg-6">
-                            <h5 >Locality</h5>
-                            <input type="text" className="form-control" placeholder="Locality" onChange={(e) => setLocality(e.target.value)}></input>
-                        </div>
-                    </div><br />
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <h5 >Address</h5>
-                            <input type="text" className="form-control" placeholder="Enter detail address" onChange={(e) => setAddress(e.target.value)}></input>
-                        </div>
-                    </div><br />
-                    <div className="row">
-                        <div className="col-lg-3">
-                            <h5 className="label">Property Type</h5>
-                        </div>
-                        <div className="col-lg-9">
-                            <b><label className="radio-container">
-                                <input type="radio" className="form-check-input" name="exampleRadios" value="Flat" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;Flat
-                            </label></b>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <b><label className="radio-container">
-                                <input type="radio" className="form-check-input" name="exampleRadios" value="House" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;House
-                            </label></b>
-                        </div>
-                    </div><br />
-                    <div className="row">
-                        <div className="col-lg-2">
-                            <h5>Flat Type</h5>
-                        </div>
-                        <div className="col-lg-4">
-                            <select name="flatType" tabindex="-1" className=" col-lg-9 form-control " onChange={(e) => setFlatType(e.target.value)}>
-                                <option disabled="disabled" selected="selected">Choose Flat Type</option>
-                                <option value="1 bhk" defaultChecked>1 bhk</option>
-                                <option value="2 bhk">2 bhk</option>
-                                <option value="3 bhk">3 bhk</option>
-                            </select>
-                        </div>
-                        <div className="col-lg-1">
-                            <h5 >Area</h5>
-                        </div>
-                        <div className="col-lg-3">
-                            <input type="text" className="form-control" placeholder="Enter Area" onChange={(e) => setArea(e.target.value)}></input>
-                        </div>
-                        <div className="col-lg-2">
-                            <select name="flatType" tabindex="-1" className=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setAreaV(e.target.value)}>
-                                <option selected="selected" value="Sq-ft">Sq-ft</option>
-                                <option value="Sq-m">Sq-m</option>
-                                <option value="Sq-yrd">Sq-yrd</option>
-                                <option value="Acre">Acre</option>
-                                <option value="Hectare">Hectare</option>
-                                <option value="kanal">kanal</option>
-                                <option value="cent">cent</option>
-                            </select>
-                        </div>
-                    </div><br />
-                    <div className="row">
-                        <div className="col-lg-5">
+                <div className="card">
+                    <div className="card-body">
+                        <form>
                             <div className="row">
-                                <h5>Property Type</h5>
-                                <div className="btn-group">
-                                    <input type="radio" className="btn-check" name="btnradio" id="btnradio1" value="Sell" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
-                                    <label className="btn btn-outline-secondary" for="btnradio1">Sell</label>
-
-                                    <input type="radio" className="btn-check" name="btnradio" id="btnradio2" value="Rent" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
-                                    <label className="btn btn-outline-secondary" for="btnradio2">Rent</label>
+                                <div className="col-lg-4">
+                                    <h5 >Select Cover Image</h5>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-7">
-                            <div className="row">
-                                <h5>Price</h5>
-                            </div>
-                            <div className="row">
-                                <div className="col-lg-7">
-                                    <input type="text" className="form-control" placeholder="Expected price" onChange={(e) => setPrice(e.target.value)}></input>
+                                <div className="col-lg-8">
+                                    <input type="file" name="coverimg" accept="/image" onChange={(e) => handleCoverImg(e)} />
                                 </div>
-                                <div className="col-lg-5">
-                                    <select name="flatType" tabindex="-1" className=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setPriceV(e.target.value)}>
-                                        <option selected="selected" value="lakh">Lakh</option>
-                                        <option value="crore">Crore</option>
-                                        <option value="thousand">Thousand</option>
+                            </div><br />
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <h5 >Property Name</h5>
+                                    <input type="text" className="form-control" placeholder="Enter property name" onChange={(e) => setPropertyName(e.target.value)}></input>
+                                </div>
+                            </div><br />
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    <h5 > City</h5>
+                                    <input type="text" className="form-control" placeholder="City" onChange={(e) => setCity(e.target.value)}></input>
+                                </div>
+                                <div className="col-lg-6">
+                                    <h5 >Locality</h5>
+                                    <input type="text" className="form-control" placeholder="Locality" onChange={(e) => setLocality(e.target.value)}></input>
+                                </div>
+                            </div><br />
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <h5 >Address</h5>
+                                    <input type="text" className="form-control" placeholder="Enter detail address" onChange={(e) => setAddress(e.target.value)}></input>
+                                </div>
+                            </div><br />
+                            <div className="row">
+                                <div className="col-lg-3">
+                                    <h5 className="label">Property Type</h5>
+                                </div>
+                                <div className="col-lg-9">
+                                    <b><label className="radio-container">
+                                        <input type="radio" className="form-check-input" name="exampleRadios" value="Flat" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;Flat
+                                    </label></b>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <b><label className="radio-container">
+                                        <input type="radio" className="form-check-input" name="exampleRadios" value="House" onChange={(e) => sethomeType(e.target.value)}></input>&nbsp;&nbsp;House
+                                    </label></b>
+                                </div>
+                            </div><br />
+                            <div className="row">
+                                <div className="col-lg-2">
+                                    <h5>Flat Type</h5>
+                                </div>
+                                <div className="col-lg-4">
+                                    <select name="flatType" tabindex="-1" className=" col-lg-9 form-control " onChange={(e) => setFlatType(e.target.value)}>
+                                        <option disabled="disabled" selected="selected">Choose Flat Type</option>
+                                        <option value="1 bhk" defaultChecked>1 bhk</option>
+                                        <option value="2 bhk">2 bhk</option>
+                                        <option value="3 bhk">3 bhk</option>
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-                    </div><br />
-                    <button type="submit" className="btn btn-primary " onClick={addproperty}>Submit</button>
-                </form>
+                                <div className="col-lg-1">
+                                    <h5 >Area</h5>
+                                </div>
+                                <div className="col-lg-3">
+                                    <input type="text" className="form-control" placeholder="Enter Area" onChange={(e) => setArea(e.target.value)}></input>
+                                </div>
+                                <div className="col-lg-2">
+                                    <select name="flatType" tabindex="-1" className=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setAreaV(e.target.value)}>
+                                        <option selected="selected" value="Sq-ft">Sq-ft</option>
+                                        <option value="Sq-m">Sq-m</option>
+                                        <option value="Sq-yrd">Sq-yrd</option>
+                                        <option value="Acre">Acre</option>
+                                        <option value="Hectare">Hectare</option>
+                                        <option value="kanal">kanal</option>
+                                        <option value="cent">cent</option>
+                                    </select>
+                                </div>
+                            </div><br />
+                            <div className="row">
+                                <div className="col-lg-5">
+                                    <div className="row">
+                                        <h5>Property Type</h5>
+                                        <div className="btn-group">
+                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio1" value="Sell" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
+                                            <label className="btn btn-outline-secondary" for="btnradio1">Sell</label>
 
+                                            <input type="radio" className="btn-check" name="btnradio" id="btnradio2" value="Rent" autocomplete="off" onChange={(e) => setPropertyType(e.target.value)}></input>
+                                            <label className="btn btn-outline-secondary" for="btnradio2">Rent</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-7">
+                                    <div className="row">
+                                        <h5>Price</h5>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-7">
+                                            <input type="text" className="form-control" placeholder="Expected price" onChange={(e) => setPrice(e.target.value)}></input>
+                                        </div>
+                                        <div className="col-lg-5">
+                                            <select name="flatType" tabindex="-1" className=" form-control select2-hidden-accessible" aria-hidden="true" onChange={(e) => setPriceV(e.target.value)}>
+                                                <option selected="selected" value="lakh">Lakh</option>
+                                                <option value="crore">Crore</option>
+                                                <option value="thousand">Thousand</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><br />
+                            <button type="submit" className="btn btn-primary " onClick={addproperty}>Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div >
         </>
 

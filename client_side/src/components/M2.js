@@ -16,7 +16,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
       );
     };
     getProperties();
-  });
+  },[location, budget, flatType, navLocation, propertyV, setuserid]);
 
   function handleClick(id) {
     setuserid(id)
