@@ -20,32 +20,48 @@ function SellerView({ setIsAuth, isAuth }) {
         }
         getProperties()
         getBuyers()
-    },[])
+    }, [])
 
     return (
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
-            <div>
-                {
-                    userProperties.map((post) => {
-                        return (buyers.map((post1) => {
-                            if (post1.sellerid === post.id) {
-                                console.log(post1.name,post1.email);
-                                return (
-                                    <div className="post" key={post1.sellerid}>
-                                        <div className="postHeader">
-                                            <div className="title">
-                                                <h1>{post1.name}</h1>
-                                                <h1>{post1.email}</h1>
-                                                <h1>{post1.phno}</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            }
-                        }))
-                    })
-                }
+            <br/><br/>
+            <div className="container">
+                <div className="card">
+                    <div className="card-body">
+                        <table className="table" style={{ textAlign: "center" }}>
+                            <thead>
+                                <tr>
+                                    <th rowSpan="2">Property Name</th>
+                                    <th colSpan="3">Buyer Details</th>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    userProperties.map((post) => {
+                                        return (buyers.map((post1, Index) => {
+                                            if (post1.sellerid === post.id && post.author.id === auth.currentUser.uid) {
+                                                return (
+                                                    <tr key={Index}>
+                                                        <td>{post.propertyName}</td>
+                                                        <td>{post1.name}</td>
+                                                        <td>{post1.email}</td>
+                                                        <td>{post1.phno}</td>
+                                                    </tr>
+                                                )
+                                            }
+                                        }))
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </>
     )

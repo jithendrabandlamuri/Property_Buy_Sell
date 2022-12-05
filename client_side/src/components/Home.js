@@ -3,8 +3,6 @@ import SearchBar from './SearchBar'
 import M2 from './M2'
 import NavbarComponent from './NavbarComponent'
 function Home({ location, setlocation, flatType, setFlatType, budget, setBudget, navLocation, setNavLocation, propertyV, setPropertyV, userid, setuserid }) {
-  const [propertyU, setPropertyU] = useState("")
-  setPropertyV(propertyU)
   return (
     <div>
       <div>
@@ -19,7 +17,7 @@ function Home({ location, setlocation, flatType, setFlatType, budget, setBudget,
               id="btnradio1"
               value="Sell"
               autoComplete="off"
-              onChange={(e) => setPropertyU(e.target.value)}
+              onChange={(e) => setPropertyV(e.target.value)}
             ></input>
             <label className="btn btn-outline-secondary" htmlFor="btnradio1">
               Sell
@@ -32,7 +30,7 @@ function Home({ location, setlocation, flatType, setFlatType, budget, setBudget,
               id="btnradio2"
               value="Rent"
               autoComplete="off"
-              onChange={(e) => setPropertyU(e.target.value)}
+              onChange={(e) => setPropertyV(e.target.value)}
             ></input>
             <label className="btn btn-outline-secondary" htmlFor="btnradio2">
               Rent

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection } from 'firebase/firestore'
-import { db } from '../firebase'
+import { auth, db } from '../firebase'
+import Navbaruser from "./Narbaruser"
 
-function About() {
+function BuyerView({ setIsAuth, isAuth }) {
     const [userProperties, setUserProperties] = useState([])
     const [buyers, setBuyers] = useState([])
     const postCollectionRefP = collection(db, "properties")
@@ -23,33 +24,38 @@ function About() {
 
     return (
         <>
-            <br /><br />
+            <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
+            <br/><br/>
             <div className="container">
                 <div className="card">
                     <div className="card-body">
                         <table className="table" style={{ textAlign: "center" }}>
                             <thead>
                                 <tr>
-                                    <th rowSpan="2">Property Name</th>
-                                    <th colSpan="3">Buyer Details</th>
+                                    <th colSpan="6">Property Details</th>
                                 </tr>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
+                                    <th>Property Name</th>
+                                    <th>City</th>
+                                    <th>Locality</th>
+                                    <th>Address</th>
+                                    <th>Flat type</th>
+                                    <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    userProperties.map((post) => {
-                                        return (buyers.map((post1, Index) => {
-                                            if (post1.sellerid === post.id) {
+                                    buyers.map((post1, Index) => {
+                                        return (userProperties.map((post) => {
+                                            if (post1.sellerid === post.id && post1.uid === auth.currentUser.uid) {
                                                 return (
                                                     <tr key={Index}>
                                                         <td>{post.propertyName}</td>
-                                                        <td>{post1.name}</td>
-                                                        <td>{post1.email}</td>
-                                                        <td>{post1.phno}</td>
+                                                        <td>{post.city}</td>
+                                                        <td>{post.locality}</td>
+                                                        <td>{post.address}</td>
+                                                        <td>{post.flatType}</td>
+                                                        <td>Rs.{post.price}/-</td>
                                                     </tr>
                                                 )
                                             }
@@ -65,4 +71,4 @@ function About() {
     )
 }
 
-export default About
+export default BuyerView

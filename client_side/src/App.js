@@ -18,6 +18,7 @@ import Analytics from './AdminComponent/Analytics.js';
 import Subscription from "./components/Subscription"
 import PropertyDetails from "./components/PropertyDetails"
 import SellerView from "./components/SellerView";
+import BuyerView from "./components/BuyerView";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -27,6 +28,8 @@ function App() {
   const [navLocation, setNavLocation] = useState("");
   const [userid, setuserid] = useState("");
   const [propertyV, setPropertyV] = useState('Sell');
+  const [subscriber, setSubscriber] = useState();
+
   console.log(propertyV);
 
   return (
@@ -37,7 +40,13 @@ function App() {
             path="/userMain"
             element={
               <ProtectedRoute>
-                <Main setIsAuth={setIsAuth} isAuth={isAuth} />
+                <Main setIsAuth={setIsAuth} isAuth={isAuth} 
+                location={location} setlocation={setLocation}
+                flatType={flatType} setFlatType={setFlatType}
+                budget={budget} setBudget={setBudget}
+                navLocation={navLocation} setNavLocation={setNavLocation}
+                propertyV={propertyV} setPropertyV={setPropertyV}
+                userid={userid} setuserid={setuserid}/>
               </ProtectedRoute>
             }
           />
@@ -55,8 +64,9 @@ function App() {
           <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
           <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
-          <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}/>} />
+          <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}  isAuth={isAuth} setIsAuth={setIsAuth}  subscriber={subscriber} setSubscriber={setSubscriber}/>} />
           <Route path="/sellerview" element={<SellerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
+          <Route path="/buyerview" element={<BuyerView  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/about" element={<About />} />
