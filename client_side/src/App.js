@@ -70,6 +70,7 @@ function App() {
           <Route path="/adminsellerview" element={<AdminSellerView />} />
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/adminbuyerview" element={<AdminBuyerView />} />
+          <Route path="/UserProfile" element={<UserProfile setIsAuth={setIsAuth} isAuth={isAuth}/>} />
         </Routes>
       </UserAuthContextProvider>
     </Router>
