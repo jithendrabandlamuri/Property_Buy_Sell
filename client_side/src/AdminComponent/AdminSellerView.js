@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase";
 
-function Dashboard() {
+function AdminSellerView() {
     const [userProperties, setUserProperties] = useState([]);
     const postCollectionRef = collection(db, "properties");
 
@@ -57,4 +57,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default AdminSellerView;
