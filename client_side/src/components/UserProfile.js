@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { getDocs, addDoc, collection } from "firebase/firestore"
+import { getDocs, addDoc, collection,doc,updateDoc } from "firebase/firestore"
 import { db, auth } from "../firebase";
 import { useNavigate } from 'react-router-dom'
 import Navbaruser from "./Narbaruser"
@@ -16,7 +16,6 @@ function UserProfile({ setIsAuth, isAuth }) {
     let navigate = useNavigate()
     const userDetailsCollection = collection(db, "userDetails")
 
-
     useEffect(() => {
         if (!isAuth) {
             navigate('/login')
@@ -24,15 +23,6 @@ function UserProfile({ setIsAuth, isAuth }) {
         const getUserDetails = async () => {
             const data = await getDocs(userDetailsCollection)
             setUserDetails(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-            userDetails.map((post) => {
-                if (post.userid === auth.currentUser.uid) {
-                    setFirstName(post.firstName)
-                    setMiddleName(post.middleName)
-                    setLastName(post.lastName)
-                    setEmail(post.email)
-                    setMobile(post.phoneNumber)                    
-                }
-            })
         }
         getUserDetails()
     }, [])
@@ -40,14 +30,36 @@ function UserProfile({ setIsAuth, isAuth }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await addDoc(userDetailsCollection, {
-                userid: auth.currentUser.uid,
-                firstName: FirstName,
-                middleName: MiddleName,
-                lastName: LastName,
-                email: Email,
-                phoneNumber: Mobile
-            });
+            userDetails.map((post) => {
+                if (post.userid === auth.currentUser.uid) {
+                    const UpdateDoc={
+                        firstName: FirstName,
+                        middleName: MiddleName,
+                        lastName: LastName,
+                        email: Email,
+                        phoneNumber: Mobile
+                    }
+                    updateDoc(doc(userDetailsCollection, post.id), {
+                        firstName: FirstName,
+                        middleName: MiddleName,
+                        lastName: LastName,
+                        email: Email,
+                        phoneNumber: Mobile
+                    });
+                    
+                }
+                else {
+                    addDoc(userDetailsCollection, {
+                        userid: auth.currentUser.uid,
+                        firstName: FirstName,
+                        middleName: MiddleName,
+                        lastName: LastName,
+                        email: Email,
+                        phoneNumber: Mobile
+                    });
+                }
+            })
+
             navigate("/userMain");
         } catch (err) {
             console.log(err.message);
