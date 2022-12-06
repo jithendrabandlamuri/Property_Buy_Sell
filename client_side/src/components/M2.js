@@ -16,7 +16,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
       );
     };
     getProperties();
-  }, [location, budget, flatType, navLocation, propertyV, setuserid]);
+  }, []);
 
   function handleClick(id) {
     setuserid(id)
@@ -25,8 +25,8 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
 
   const renderCard = (card, id) => {
     return (
-      <div className="col-lg-3 col-md-4">
-        <div className="card shadow-lg rounded-4" key={id}>
+      <div className="col-xl-3 col-lg-4 col-md-6 mt-4 mb-4" key={id}>
+        <div className="card shadow-lg rounded-4" >
           <img
             style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
             src={card.coverImg}
@@ -56,7 +56,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
   };
 
   return (
-    <div className="container mx-auto mt-4">
+    <div className="container mx-auto mt-4 mb-4">
       <div className="row">
         {
           userProperties.map((post) => {

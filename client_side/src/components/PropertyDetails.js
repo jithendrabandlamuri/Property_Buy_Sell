@@ -75,7 +75,7 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
             try {
                 await addDoc(userCollection, {
                     sellerid: userid,
-                    uid:auth.currentUser.uid,
+                    uid: auth.currentUser.uid,
                     name,
                     email,
                     phno,
@@ -174,8 +174,7 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
                                                         <Card.Title>{post.homeType}</Card.Title>
                                                     </div>
                                                 </div>
-
-                                                <Card.Text>
+                                                <div className="card-text">
                                                     <div
                                                         style={{
                                                             justifyContent: "space-between",
@@ -206,7 +205,7 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
                                                             Seller Details
                                                         </Button>
                                                     </div>
-                                                </Card.Text>
+                                                </div>
                                             </Card>
                                         </Col>
                                     </Row>
