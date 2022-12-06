@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection } from 'firebase/firestore'
-import { auth, db } from '../firebase'
-import Navbaruser from "./Narbaruser"
+import { db } from '../firebase'
 
-function SellerView({ setIsAuth, isAuth }) {
+function AdminBuyerView() {
     const [userProperties, setUserProperties] = useState([])
     const [buyers, setBuyers] = useState([])
     const postCollectionRefP = collection(db, "properties")
@@ -24,8 +23,7 @@ function SellerView({ setIsAuth, isAuth }) {
 
     return (
         <>
-            <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
-            <br/><br/>
+            <br /><br />
             <div className="container">
                 <div className="card">
                     <div className="card-body">
@@ -45,7 +43,7 @@ function SellerView({ setIsAuth, isAuth }) {
                                 {
                                     userProperties.map((post) => {
                                         return (buyers.map((post1, Index) => {
-                                            if (post1.sellerid === post.id && post.author.id === auth.currentUser.uid) {
+                                            if (post1.sellerid === post.id) {
                                                 return (
                                                     <tr key={Index}>
                                                         <td>{post.propertyName}</td>
@@ -67,4 +65,4 @@ function SellerView({ setIsAuth, isAuth }) {
     )
 }
 
-export default SellerView
+export default AdminBuyerView

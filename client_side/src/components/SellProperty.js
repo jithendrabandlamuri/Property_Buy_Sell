@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore"
 import { db, storageRef, auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
-import Navbaruser from "./Narbaruser";
+import { useNavigate } from 'react-router-dom'
+import Navbaruser from "./Narbaruser"
 
 function SellProperty({ setIsAuth, isAuth }) {
   const [coverImg, setCoverImg] = useState(null);
@@ -22,17 +22,18 @@ function SellProperty({ setIsAuth, isAuth }) {
 
   let navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isAuth) {
-      navigate("/login");
-    }
-  }, []);
+    useEffect(() => {
+        if (!isAuth) {
+            navigate('/login')
+        }
+    }, [])
 
-  const handleCoverImg = (e) => {
-    if (e.target.files[0]) {
-      setCoverImg(e.target.files[0]);
+    const handleCoverImg = (e) => {
+        if (e.target.files[0]) {
+            setCoverImg(e.target.files[0])
+        }
     }
-  };
+
 
   const addproperty = async (e) => {
     setArea(area.toString() + " " + areav);

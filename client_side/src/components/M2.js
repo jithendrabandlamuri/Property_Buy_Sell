@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +16,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
       );
     };
     getProperties();
-  });
+  }, [location, budget, flatType, navLocation, propertyV, setuserid]);
 
   function handleClick(id) {
     setuserid(id)
@@ -25,10 +25,10 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
 
   const renderCard = (card, id) => {
     return (
-      <div className="col-md-3">
-        <div style={{ width: "18rem" }} className="card shadow-lg" key={id}>
+      <div className="col-lg-3 col-md-4">
+        <div className="card shadow-lg rounded-4" key={id}>
           <img
-            style={{ height: "300px" }}
+            style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
             src={card.coverImg}
           />
           <div className="card-body">

@@ -30,6 +30,9 @@ const Narbaruser = ({ setIsAuth, isAuth }) => {
                     ) : (
                         <>
                             <li className="nav-item">
+                                <a className="nav-link" href="/UserProfile">My Profile</a>
+                            </li>
+                            <li className="nav-item">
                                 <a className="nav-link" href="/userproperties">My Properties</a>
                             </li>
                             <li className="nav-item">
@@ -37,6 +40,9 @@ const Narbaruser = ({ setIsAuth, isAuth }) => {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/sellerview">Seller View</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/buyerview">Buyer View</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/subscription">Subscription</a>
