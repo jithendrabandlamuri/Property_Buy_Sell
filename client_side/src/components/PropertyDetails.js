@@ -75,7 +75,7 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
             try {
                 await addDoc(userCollection, {
                     sellerid: userid,
-                    uid:auth.currentUser.uid,
+                    uid: auth.currentUser.uid,
                     name,
                     email,
                     phno,
@@ -174,39 +174,40 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
                                                         <Card.Title>{post.homeType}</Card.Title>
                                                     </div>
                                                 </div>
-
-                                                <Card.Text>
-                                                    <div
-                                                        style={{
-                                                            justifyContent: "space-between",
-                                                            marginTop: "10px",
-                                                        }}
-                                                    >
-                                                        <Button
+                                                <div>
+                                                    <Card.Text>
+                                                        <div
                                                             style={{
-                                                                height: "45px",
-                                                                borderRadius: "0.5",
-                                                                marginRight: "10px",
+                                                                justifyContent: "space-between",
+                                                                marginTop: "10px",
                                                             }}
-                                                            variant="primary"
-                                                            onClick={handleShow}
                                                         >
-                                                            Contact Seller
-                                                        </Button>
-                                                        <Button
-                                                            style={{
-                                                                height: "45px",
-                                                                borderRadius: "0.5",
-                                                                marginRight: "auto",
-                                                                marginLeft: "auto",
-                                                            }}
-                                                            variant="primary"
-                                                            onClick={handleSellerDetails}
-                                                        >
-                                                            Seller Details
-                                                        </Button>
-                                                    </div>
-                                                </Card.Text>
+                                                            <Button
+                                                                style={{
+                                                                    height: "45px",
+                                                                    borderRadius: "0.5",
+                                                                    marginRight: "10px",
+                                                                }}
+                                                                variant="primary"
+                                                                onClick={handleShow}
+                                                            >
+                                                                Contact Seller
+                                                            </Button>
+                                                            <Button
+                                                                style={{
+                                                                    height: "45px",
+                                                                    borderRadius: "0.5",
+                                                                    marginRight: "auto",
+                                                                    marginLeft: "auto",
+                                                                }}
+                                                                variant="primary"
+                                                                onClick={handleSellerDetails}
+                                                            >
+                                                                Seller Details
+                                                            </Button>
+                                                        </div>
+                                                    </Card.Text>
+                                                </div>
                                             </Card>
                                         </Col>
                                     </Row>
