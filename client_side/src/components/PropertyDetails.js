@@ -21,13 +21,23 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
 
     function handleSellerDetails() {
         if (!isAuth) {
-            navigate('/login')
+            alert("You need to login and take Subscription to see seller details")
         }
-        if (!subscriber) {
+        else if (!subscriber) {
             alert("You need to take Subscription to see seller details")
         }
         else {
             setSellerDetails(true);
+        }
+    }
+
+    function handleContactSeller() {
+
+        if (!isAuth) {
+            alert("You need to login to contact seller")
+        }
+        else {
+            setShow(true);
         }
     }
 
@@ -188,7 +198,7 @@ function PropertyDetails({ userid, setNavLocation, isAuth, setIsAuth, subscriber
                                                                 marginRight: "10px",
                                                             }}
                                                             variant="primary"
-                                                            onClick={handleShow}
+                                                            onClick={handleContactSeller}
                                                         >
                                                             Contact Seller
                                                         </Button>
