@@ -47,10 +47,9 @@ function UserProperties({ setIsAuth, isAuth }) {
                         {userProperties.map((post) => {
                             if (post.author.id === auth.currentUser.uid) {
                                 return (
-                                    <div className="col-5">
+                                    <div className="col-5" key={post.id}>
                                         <div
                                             className="card shadow-lg rounded-4"
-                                            key={post.id}
                                         >
                                             <img
                                                 style={{
