@@ -19,8 +19,8 @@ const NavbarComponent = ({setNavLocation}) => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Form.Select onChange={(e) => setNavLocation(e.target.value)}>
-              <option  value="location">Location</option>
+            <Form.Select defaultValue={'DEFAULT'} onChange={(e) => setNavLocation(e.target.value)}>
+              <option value="DEFAULT" disabled >Location</option>
               {
                 location.map(data => (
                   <option value={data} key={data}>{data}</option>
