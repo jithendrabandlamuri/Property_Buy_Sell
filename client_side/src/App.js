@@ -1,5 +1,4 @@
 import "./App.css";
-import Main from "./components/Main";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
@@ -36,21 +35,8 @@ function App() {
     <Router>
       <UserAuthContextProvider>
         <Routes>
-          <Route
-            path="/userMain"
-            element={
-              <ProtectedRoute>
-                <Main setIsAuth={setIsAuth} isAuth={isAuth} 
-                location={location} setlocation={setLocation}
-                flatType={flatType} setFlatType={setFlatType}
-                budget={budget} setBudget={setBudget}
-                navLocation={navLocation} setNavLocation={setNavLocation}
-                propertyV={propertyV} setPropertyV={setPropertyV}
-                userid={userid} setuserid={setuserid}/>
-              </ProtectedRoute>
-            }
-          />
           <Route path="/" element={<Home 
+          setIsAuth={setIsAuth} isAuth={isAuth} 
           location={location} setlocation={setLocation}
           flatType={flatType} setFlatType={setFlatType}
           budget={budget} setBudget={setBudget}
