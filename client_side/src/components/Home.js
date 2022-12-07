@@ -59,7 +59,7 @@ function Home({ location, setlocation, flatType, setFlatType, budget, setBudget,
               autoComplete="off"
               onChange={(e) => setPropertyV(e.target.value)}
             ></input>
-            <label className="btn btn-outline-secondary" htmlFor="btnradio1">
+            <label className="btn btn-outline-secondary Rbutton" htmlFor="btnradio1">
               Sell
             </label>
 
@@ -72,7 +72,7 @@ function Home({ location, setlocation, flatType, setFlatType, budget, setBudget,
               autoComplete="off"
               onChange={(e) => setPropertyV(e.target.value)}
             ></input>
-            <label className="btn btn-outline-secondary" htmlFor="btnradio2">
+            <label className="btn btn-outline-secondary Rbutton" htmlFor="btnradio2">
               Rent
             </label>
           </div>

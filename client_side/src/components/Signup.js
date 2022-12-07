@@ -66,14 +66,6 @@ const Signup = ({ setNavLocation }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicMobile">
-                  <Form.Control
-                    type="mobile"
-                    placeholder="MobileNum"
-                    onChange={(e) => setMobileNum(e.target.value)}
-                  />
-                </Form.Group>
-
                 <div className="d-grid gap-2">
                   <Button variant="primary" type="Submit">
                     Sign up

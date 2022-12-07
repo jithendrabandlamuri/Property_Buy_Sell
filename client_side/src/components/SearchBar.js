@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Carousel from 'react-bootstrap/Carousel';
+
 
 import {
   Row,
@@ -29,7 +29,7 @@ function SearchBar({setlocation,setFlatType,setBudget}) {
       
       <br />
       <div
-        style={{ width: "60rem", border: "0.5px solid gray" }}
+        style={{ width: "50rem", border: "3px solid gray", borderRadius: "65px" }}
         className="container rounded border-left-50"
       >
         <Form onSubmit={handleSubmit}>

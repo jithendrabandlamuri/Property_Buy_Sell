@@ -6,7 +6,7 @@ import {
     FaRegChartBar,
     FaShoppingBag,
 }from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-bootstrap';
 
 
 const Sidebar = ({children}) => {

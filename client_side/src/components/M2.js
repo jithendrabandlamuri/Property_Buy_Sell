@@ -65,25 +65,55 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
   };
 
   return (
-    <div className="container mx-auto mt-4 mb-4">
+    <><div className="container mx-auto mt-4 mb-4">
       <div className="row">
-        {
-          userProperties.map((post) => {
-            if (post.propertyType === propertyV) {
-              return renderCard(post, post.id);
-            } else if (
-              post.city === location &&
-              post.flatType === flatType &&
-              post.price === budget
-            ) {
-              return renderCard(post, post.id);
-            } else if (post.city === navLocation) {
-              return renderCard(post, post.id);
-            }
-          })
-        }
+        {userProperties.map((post) => {
+          if (post.propertyType === propertyV) {
+            return renderCard(post, post.id);
+          } else if (post.city === location &&
+            post.flatType === flatType &&
+            post.price === budget) {
+            return renderCard(post, post.id);
+          } else if (post.city === navLocation) {
+            return renderCard(post, post.id);
+          }
+        })}
       </div>
-    </div>
+    </div><div className="main-footer">
+        <div className="container">
+          <div className="row">
+            {/* Column1 */}
+            <div className="col">
+              <h1 className="list-unstyled">
+                <p className="home-footer">You are not buying a house, you are buying a lifestyle</p>
+              </h1>
+            </div>
+            {/* Column2 */}
+            <div className="col">
+              <h4>Contact Us</h4>
+              <ui className="list-unstyled">
+                <li>propertySeller@gmail.com</li>
+                <li>+91 1234567899</li>
+              </ui>
+            </div>
+            {/* Column3 */}
+            <div className="col">
+              <h4>Stay Connected</h4>
+              <ui className="list-unstyled">
+                <li>Fackbook</li>
+                <li>Instagram</li>
+              </ui>
+            </div>
+          </div>
+          <hr />
+          <div className="row">
+            <p className="col-sm">
+              &copy;{new Date().getFullYear()} Property | All rights reserved |
+              Terms Of Service | Privacy
+            </p>
+          </div>
+        </div>
+      </div></>
   );
 }
 
