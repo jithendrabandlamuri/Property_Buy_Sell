@@ -36,7 +36,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
     return (
       <div className="col-xl-3 col-lg-9 col-md-6 mt-4 mb-2" key={id}>
         <div className="card shadow-lg rounded-4" >
-          <img
+          <image
             style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
             src={card.coverImg}
           />
