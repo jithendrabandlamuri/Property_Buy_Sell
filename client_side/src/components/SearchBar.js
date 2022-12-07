@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+
 import {
   Row,
   Col,
@@ -24,6 +25,7 @@ function SearchBar({setlocation,setFlatType,setBudget}) {
 
   return (
     <div>
+      
       <br />
       <div
         style={{ width: "60rem", border: "0.5px solid gray" }}

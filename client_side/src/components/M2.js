@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import {
+  MDBFooter,
+  MDBContainer,
+  MDBIcon,
+  MDBInput,
+  MDBCol,
+  MDBRow,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
   const [userProperties, setUserProperties] = useState([]);
@@ -25,7 +34,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
 
   const renderCard = (card, id) => {
     return (
-      <div className="col-xl-3 col-lg-4 col-md-6 mt-4 mb-4" key={id}>
+      <div className="col-xl-3 col-lg-9 col-md-6 mt-4 mb-2" key={id}>
         <div className="card shadow-lg rounded-4" >
           <img
             style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
