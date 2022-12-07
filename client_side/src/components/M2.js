@@ -36,7 +36,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
     return (
       <div className="col-xl-3 col-lg-9 col-md-6 mt-4 mb-2" key={id}>
         <div className="card shadow-lg rounded-4" >
-          <image
+          <img
             style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
             src={card.coverImg}
           />
@@ -82,13 +82,13 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
     </div><div className="main-footer">
         <div className="container">
           <div className="row">
-            {/* Column1 */}
+          
             <div className="col">
               <h1 className="list-unstyled">
                 <p className="home-footer">You are not buying a house, you are buying a lifestyle</p>
               </h1>
             </div>
-            {/* Column2 */}
+          
             <div className="col">
               <h4>Contact Us</h4>
               <ui className="list-unstyled">

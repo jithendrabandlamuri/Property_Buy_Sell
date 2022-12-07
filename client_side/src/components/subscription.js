@@ -80,7 +80,7 @@ function Subscription({ setIsAuth, isAuth }) {
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
             <div className="back_image">
-                <div className='container'>
+                <div className='container' style={{textAlign:"center"}}>
                     <br /><br />
                     <div >Title</div><br />
                     <h5 >Pay Zero Commission &amp; Call Owners Directly</h5>

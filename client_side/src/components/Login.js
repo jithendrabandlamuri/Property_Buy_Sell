@@ -87,7 +87,6 @@ const Login = ({ setIsAuth, setNavLocation }) => {
                   <Button variant="primary" type="Submit">
                     Log In
                   </Button>
-                  <p>ForgotPassword? <Link to="/forgottenPassword">Reset it</Link></p>
                 </div>
               </Form>
               <hr />
