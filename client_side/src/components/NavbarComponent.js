@@ -14,7 +14,7 @@ const NavbarComponent = ({setNavLocation}) => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">RentLo</Navbar.Brand>
+        <Navbar.Brand href="/">Hoger</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">

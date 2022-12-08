@@ -55,7 +55,7 @@ const Login = ({ setIsAuth, setNavLocation }) => {
           <div className="flex">
             <div className="content">
               <div className="brand-wrapper">
-                <h1>RentLo</h1>
+                <h1>Hoger...</h1>
               </div>
               <div className="intro-content-wrapper">
                 <h1 className="intro-title">Welcome to website !</h1>
