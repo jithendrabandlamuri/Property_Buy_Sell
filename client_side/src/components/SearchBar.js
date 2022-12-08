@@ -15,7 +15,7 @@ function SearchBar({setlocation,setFlatType,setBudget}) {
   const [budget1, setBudget1] = useState("");
 
   const flats = ["1 bhk", "2 bhk", "3 bhk", "4 bhk", "5 bhk"];
-  const budgets = ["min", "1", "5 Lakhs", "8 Lakhs","38,00,000"];
+  const budgets = ["min", "1", "5 Lakhs", "8 Lakhs","38,00,000","100"];
 
   const handleSubmit = async(e) => {
     e.preventDefault();
