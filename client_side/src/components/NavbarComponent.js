@@ -19,14 +19,14 @@ const NavbarComponent = ({setNavLocation}) => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Form.Select defaultValue={'DEFAULT'} onChange={(e) => setNavLocation(e.target.value)}>
+            {/* <Form.Select defaultValue={'DEFAULT'} onChange={(e) => setNavLocation(e.target.value)}>
               <option value="DEFAULT" disabled >Location</option>
               {
                 location.map(data => (
                   <option value={data} key={data}>{data}</option>
                 ))
               }
-            </Form.Select>
+            </Form.Select> */}
             <Link className='nav-link' to="/login">Login</Link>
             <Link className='nav-link' to="/Addproperty">AddProperty</Link>
           

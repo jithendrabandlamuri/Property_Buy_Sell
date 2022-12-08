@@ -66,7 +66,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
           {userProperties.map((post) => {
             if (post.city === location &&
               post.flatType === flatType &&
-              post.price === budget) {
+              post.price >= budget) {
               return renderCard(post, post.id);
             }
           })}
