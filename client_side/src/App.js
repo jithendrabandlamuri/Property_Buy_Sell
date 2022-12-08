@@ -47,7 +47,7 @@ function App() {
           <Route path="/subscription" element={<Subscription setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/login" element={<Login setIsAuth={setIsAuth} setNavLocation={setNavLocation}/>} />
           <Route path="/signup" element={<Signup setNavLocation={setNavLocation}/>} />
-          <Route path="/phonesignup" element={<PhoneSignUp/>}></Route>
+          <Route path="/phonesignup" element={<PhoneSignUp setIsAuth={setIsAuth}/>}></Route>
           <Route path="/Addproperty" element={<SellProperty setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/userproperties" element={<UserProperties  setIsAuth={setIsAuth} isAuth={isAuth}/>} />
           <Route path="/propertydetails" element={<PropertyDetails  userid={userid} setNavLocation={setNavLocation}  isAuth={isAuth} setIsAuth={setIsAuth}  subscriber={subscriber} setSubscriber={setSubscriber}/>} />

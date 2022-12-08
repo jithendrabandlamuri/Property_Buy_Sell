@@ -5,7 +5,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useUserAuth } from "../context/UserAuthContext";
 
-const PhoneSignUp = () => {
+const PhoneSignUp = ({setIsAuth}) => {
   const [error, setError] = useState("");
   const [number, setNumber] = useState("");
   const [flag, setFlag] = useState(false);
@@ -35,7 +35,8 @@ const PhoneSignUp = () => {
     if (otp === "" || otp === null) return;
     try {
       await result.confirm(otp);
-      navigate("/home");
+      setIsAuth(true)
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
