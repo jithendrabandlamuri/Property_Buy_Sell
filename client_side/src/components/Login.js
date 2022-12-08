@@ -22,14 +22,10 @@ const Login = ({ setIsAuth, setNavLocation }) => {
     e.preventDefault();
     setError("");
     try {
-      // await addDoc(userCollection, {
-      //   email: email,
-      //   password: password
-      // });
       await logIn(email, password);
       localStorage.setItem("isAuth", true)
       setIsAuth(true)
-      navigate("/userMain");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -41,7 +37,7 @@ const Login = ({ setIsAuth, setNavLocation }) => {
       await googleSignIn();
       localStorage.setItem("isAuth", true)
       setIsAuth(true)
-      navigate("/userMain");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../firebase'
+import AdminNavbar from "./AdminNavbar";
 
 function AdminBuyerView() {
     const [userProperties, setUserProperties] = useState([])
@@ -23,6 +24,7 @@ function AdminBuyerView() {
 
     return (
         <>
+            <AdminNavbar/>
             <br /><br />
             <div className="container">
                 <div className="card">

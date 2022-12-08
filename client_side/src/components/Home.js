@@ -3,11 +3,13 @@ import SearchBar from './SearchBar'
 import M2 from './M2'
 import NavbarComponent from './NavbarComponent'
 import Carousel from 'react-bootstrap/Carousel';
-function Home({ location, setlocation, flatType, setFlatType, budget, setBudget, navLocation, setNavLocation, propertyV, setPropertyV, userid, setuserid }) {
+import Navbaruser from "./Narbaruser"
+
+function Home({ isAuth,setIsAuth,location, setlocation, flatType, setFlatType, budget, setBudget, navLocation, setNavLocation, propertyV, setPropertyV, userid, setuserid }) {
   return (
     <div>
       <div>
-        <NavbarComponent setNavLocation={setNavLocation} />
+      {!isAuth ? <NavbarComponent setNavLocation={setNavLocation} /> : <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />}
         <Carousel>
       <Carousel.Item>
         <img

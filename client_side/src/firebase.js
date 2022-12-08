@@ -4,13 +4,19 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCBN7nA448-dwOYbLqs9E-sLp0Y0LHNTrs",
-  authDomain: "mock-project-f70b1.firebaseapp.com",
-  projectId: "mock-project-f70b1",
-  storageBucket: "mock-project-f70b1.appspot.com",
-  messagingSenderId: "879827012697",
-  appId: "1:879827012697:web:2dcb70f99a33ec6164f548",
-  measurementId: "G-3N2G9Y41EM"
+  apiKey: "AIzaSyBDOHbxD-98ekWy7noDrsptiL1J7kqebwY",
+
+  authDomain: "property-buy-sell-c4f9c.firebaseapp.com",
+
+  projectId: "property-buy-sell-c4f9c",
+
+  storageBucket: "property-buy-sell-c4f9c.appspot.com",
+
+  messagingSenderId: "211727460085",
+
+  appId: "1:211727460085:web:dd9613b8b7839b7c7ac7bc",
+
+  measurementId: "G-TD6XM83DSK"
 });
 
 const app = firebase;

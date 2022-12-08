@@ -34,7 +34,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
 
   const renderCard = (card, id) => {
     return (
-      <div className="col-xl-3 col-lg-9 col-md-6 mt-4 mb-2" key={id}>
+      <div className="col-xl-3 col-lg-4 col-md-6 mt-4 mb-2" key={id}>
         <div className="card shadow-lg rounded-4" >
           <img
             style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
@@ -96,7 +96,6 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
                 <li>+91 1234567899</li>
               </ui>
             </div>
-            {/* Column3 */}
             <div className="col">
               <h4>Stay Connected</h4>
               <ui className="list-unstyled">

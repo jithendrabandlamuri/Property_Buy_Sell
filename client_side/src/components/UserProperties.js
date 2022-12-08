@@ -8,10 +8,13 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import Navbaruser from "./Narbaruser";
+import { useNavigate } from "react-router-dom";
 
 function UserProperties({ setIsAuth, isAuth }) {
     const [userProperties, setUserProperties] = useState([]);
     const postCollectionRef = collection(db, "properties");
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getProperties = async () => {
@@ -26,12 +29,9 @@ function UserProperties({ setIsAuth, isAuth }) {
     const deleteProperty = async (id) => {
         const postDoc = doc(db, "properties", id);
         await deleteDoc(postDoc);
+        navigate("/userproperties")
     };
 
-    const updateProperty = async (id) => {
-        const postDoc = doc(db, "properties", id);
-        await setDoc(postDoc);
-    };
     return (
         <>
             <Navbaruser setIsAuth={setIsAuth} isAuth={isAuth} />
@@ -123,23 +123,6 @@ function UserProperties({ setIsAuth, isAuth }) {
                                                         "space-around",
                                                 }}
                                             >
-                                                <div className="updatePost">
-                                                    {isAuth &&
-                                                        post.author.id ===
-                                                        auth.currentUser
-                                                            .uid && (
-                                                            <button
-                                                                className="btn btn-success"
-                                                                onClick={() => {
-                                                                    updateProperty(
-                                                                        post.id
-                                                                    );
-                                                                }}
-                                                            >
-                                                                Update
-                                                            </button>
-                                                        )}
-                                                </div>
                                                 <div className="deletePost">
                                                     {isAuth &&
                                                         post.author.id ===

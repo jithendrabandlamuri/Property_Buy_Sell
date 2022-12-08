@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase";
+import AdminNavbar from "./AdminNavbar";
 
 function AdminSellerView() {
     const [userProperties, setUserProperties] = useState([]);
@@ -44,6 +45,7 @@ function AdminSellerView() {
 
     return (
         <>
+        <AdminNavbar/>
             <div className="container mx-auto mt-4">
                 <div className="row">
                     {
