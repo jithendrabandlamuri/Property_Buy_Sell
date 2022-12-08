@@ -21,7 +21,7 @@ const Narbaruser = ({ setIsAuth, isAuth }) => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="/userMain">Home</a>
+                        <a className="nav-link" href="/">Home</a>
                     </li>
                     {!isAuth ? (
                         <li className="nav-item">
