@@ -3,14 +3,10 @@ import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import {
-  MDBFooter,
-  MDBContainer,
-  MDBIcon,
-  MDBInput,
-  MDBCol,
-  MDBRow,
-  MDBBtn
-} from 'mdb-react-ui-kit';
+  faFacebook,
+  faInstagram
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
   const [userProperties, setUserProperties] = useState([]);
@@ -99,8 +95,8 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
             <div className="col">
               <h4>Stay Connected</h4>
               <ui className="list-unstyled">
-                <li>Fackbook</li>
-                <li>Instagram</li>
+                <li>Fackbook <FontAwesomeIcon icon={faFacebook} size="1x" /></li>
+                <li>Instagram <FontAwesomeIcon icon={faInstagram} size="1x" /></li>
               </ui>
             </div>
           </div>
