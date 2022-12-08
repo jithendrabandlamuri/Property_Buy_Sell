@@ -33,7 +33,7 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
       <div className="col-xl-3 col-lg-4 col-md-6 mt-4 mb-2" key={id}>
         <div className="card shadow-lg rounded-4" >
           <img
-            style={{ height: "300px",borderTopRightRadius:"13px",borderTopLeftRadius:"13px" }}
+            style={{ height: "300px", borderTopRightRadius: "13px", borderTopLeftRadius: "13px" }}
             src={card.coverImg}
           />
           <div className="card-body">
@@ -62,42 +62,48 @@ function M2({ location, budget, flatType, navLocation, propertyV, setuserid }) {
 
   return (
     <><div className="container mx-auto mt-4 mb-4">
+      <div>
+          {userProperties.map((post) => {
+            if (post.city === location &&
+              post.flatType === flatType &&
+              post.price >= budget) {
+              return renderCard(post, post.id);
+            }
+          })}
+          <hr/>
+        </div>
       <div className="row">
-        {userProperties.map((post) => {
-          if (post.propertyType === propertyV) {
-            return renderCard(post, post.id);
-          } else if (post.city === location &&
-            post.flatType === flatType &&
-            post.price === budget) {
-            return renderCard(post, post.id);
-          } else if (post.city === navLocation) {
-            return renderCard(post, post.id);
-          }
-        })}
+        
+          {userProperties.map((post) => {
+            if (post.propertyType === propertyV) {
+              return renderCard(post, post.id);
+            } else if (post.city === navLocation) {
+              return renderCard(post, post.id);
+            }
+          })}
       </div>
     </div><div className="main-footer">
         <div className="container">
           <div className="row">
-          
+
             <div className="col">
               <h1 className="list-unstyled">
                 <p className="home-footer">You are not buying a house, you are buying a lifestyle</p>
               </h1>
             </div>
-          
             <div className="col">
               <h4>Contact Us</h4>
-              <ui className="list-unstyled">
+              <ul className="list-unstyled">
                 <li>propertySeller@gmail.com</li>
                 <li>+91 1234567899</li>
-              </ui>
+              </ul>
             </div>
             <div className="col">
               <h4>Stay Connected</h4>
-              <ui className="list-unstyled">
+              <ul className="list-unstyled">
                 <li>Fackbook <FontAwesomeIcon icon={faFacebook} size="1x" /></li>
                 <li>Instagram <FontAwesomeIcon icon={faInstagram} size="1x" /></li>
-              </ui>
+              </ul>
             </div>
           </div>
           <hr />

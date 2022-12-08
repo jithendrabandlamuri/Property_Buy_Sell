@@ -3,8 +3,7 @@ import {
     getDocs,
     collection,
     deleteDoc,
-    doc,
-    setDoc,
+    doc
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import Navbaruser from "./Narbaruser";

@@ -195,6 +195,8 @@ function SellProperty({ setIsAuth, isAuth }) {
                   </option>
                   <option value="2 bhk">2 bhk</option>
                   <option value="3 bhk">3 bhk</option>
+                  <option value="3 bhk">4 bhk</option>
+                  <option value="3 bhk">5 bhk</option>
                 </select>
               </div>
               <div className="col-lg-2">
